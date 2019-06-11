@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Post
  *
- * @ORM\Table(name="post", uniqueConstraints={@ORM\UniqueConstraint(name="post_title_key", columns={"title"})})
+ * @ORM\Table(name="post", uniqueConstraints={@ORM\UniqueConstraint(name="post_title_key", columns={"title"})}, indexes={@ORM\Index(name="IDX_5A8A6C8D1F55203D", columns={"topic_id"})})
  * @ORM\Entity
  */
 class Post
@@ -30,105 +30,35 @@ class Post
     private $title;
 
     /**
-     * @var string
+     * @var string|null
      *
      * @ORM\Column(name="text_field", type="text", nullable=true)
      */
     private $textField;
 
     /**
-     * @var DateTime
+     * @var \DateTime|null
      *
-     * @ORM\Column(name="creation_date", type="date", nullable=true, options={"default"="CURRENT_DATE"})
+     * @ORM\Column(name="created_at", type="date", nullable=true, options={"default"="CURRENT_DATE"})
      */
-    private $creationDate = 'CURRENT_DATE';
+    private $createdAt = 'CURRENT_DATE';
 
     /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param int $id
-     */
-    public function setId(int $id): void
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTitle(): ?string
-    {
-        return $this->title;
-    }
-
-    /**
-     * @param string $title
-     */
-    public function setTitle(string $title): void
-    {
-        $this->title = $title;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTextField(): ?string
-    {
-        return $this->textField;
-    }
-
-    /**
-     * @param string $textField
-     */
-    public function setTextField(?string $textField): void
-    {
-        $this->textField = $textField;
-    }
-
-    /**
-     * @return \DateTime|null
-     */
-    public function getCreationDate(): ?\DateTime
-    {
-        return $this->creationDate;
-    }
-
-    /**
-     * @param \DateTime|null $creationDate
-     */
-    public function setCreationDate(?\DateTime $creationDate): void
-    {
-        $this->creationDate = $creationDate;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAuthor(): string
-    {
-        return $this->author;
-    }
-
-    /**
-     * @param string $author
-     */
-    public function setAuthor(string $author): void
-    {
-        $this->author = $author;
-    }
-
-    /**
-     * @var string
+     * @var string|null
      *
-     * @ORM\Column(name="author", type="string", length=122, nullable=false, options={"default"="anonymus"})
+     * @ORM\Column(name="author", type="string", length=122, nullable=true)
      */
-    private $author = 'anonymus';
+    private $author;
+
+    /**
+     * @var \Topic
+     *
+     * @ORM\ManyToOne(targetEntity="Topic")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="topic_id", referencedColumnName="id")
+     * })
+     */
+    private $topic;
 
 
 }

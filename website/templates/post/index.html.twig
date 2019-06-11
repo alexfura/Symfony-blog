@@ -1,41 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Post index{% endblock %}
+{% block title %}Hello PostController!{% endblock %}
 
 {% block body %}
-    <h1>Post index</h1>
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>TextField</th>
-                <th>CreationDate</th>
-                <th>Author</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for post in posts %}
-            <tr>
-                <td>{{ post.id }}</td>
-                <td>{{ post.title }}</td>
-                <td>{{ post.textField }}</td>
-                <td>{{ post.creationDate ? post.creationDate|date('Y-m-d') : '' }}</td>
-                <td>{{ post.author }}</td>
-                <td>
-                    <a href="{{ path('post_show', {'id': post.id}) }}">show</a>
-                    <a href="{{ path('post_edit', {'id': post.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
 
-    <a href="{{ path('post_new') }}">Create new</a>
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ '/home/alex/php/symphony/website/src/Controller/PostController.php'|file_link(0) }}">src/Controller/PostController.php</a></code></li>
+        <li>Your template at <code><a href="{{ '/home/alex/php/symphony/website/templates/post/index.html.twig'|file_link(0) }}">templates/post/index.html.twig</a></code></li>
+    </ul>
+</div>
 {% endblock %}

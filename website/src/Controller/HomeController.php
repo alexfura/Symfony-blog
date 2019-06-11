@@ -19,9 +19,12 @@ class HomeController extends AbstractController
     public function index()
     {
         // get home page
-        $message = "Home";
+        $message = "";
 
-        return new Response($message);
+        return $this->render(
+            'home.html.twig', ['message' => $message]
+        );
+
     }
 
     /**
@@ -32,7 +35,7 @@ class HomeController extends AbstractController
         // get about page
         $about_message = "Get info about this website";
         return $this->render(
-            'main.html.twig', ['message' => $about_message]
+            'about.html.twig', ['message' => $about_message]
         );
     }
 }
