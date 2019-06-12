@@ -1,0 +1,4 @@
+{# templates/article/recent_list.html.twig #}
+{%  for link in topics %}
+    <li><a href="{{ path('postsarticle_show_slug', {slug: 'test'}) }}">{{ link.title }}</a> </li>
+{% endfor %}

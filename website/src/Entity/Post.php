@@ -23,6 +23,86 @@ class Post
     private $id;
 
     /**
+     * @return string
+     */
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param string $title
+     */
+    public function setTitle(string $title): void
+    {
+        $this->title = $title;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getTextField(): ?string
+    {
+        return $this->textField;
+    }
+
+    /**
+     * @param string|null $textField
+     */
+    public function setTextField(?string $textField): void
+    {
+        $this->textField = $textField;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getCreatedAt(): ?\DateTime
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param \DateTime|null $createdAt
+     */
+    public function setCreatedAt(?\DateTime $createdAt): void
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getAuthor(): ?string
+    {
+        return $this->author;
+    }
+
+    /**
+     * @param string|null $author
+     */
+    public function setAuthor(?string $author): void
+    {
+        $this->author = $author;
+    }
+
+    /**
+     * @return \Topic
+     */
+    public function getTopic(): \Topic
+    {
+        return $this->topic;
+    }
+
+    /**
+     * @param \Topic $topic
+     */
+    public function setTopic(\Topic $topic): void
+    {
+        $this->topic = $topic;
+    }
+
+    /**
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=122, nullable=false)
@@ -60,5 +140,16 @@ class Post
      */
     private $topic;
 
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
 
+    public function getSlug()
+    {
+        return $this->getTitle();
+    }
 }
