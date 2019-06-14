@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Topic
@@ -133,8 +134,13 @@ class Topic
     /**
      * @return Collection/Post
      */
-    public function getProducts() : Collection
+    public function getPosts() : Collection
     {
         return $this->posts;
+    }
+
+    public function __construct()
+    {
+        $this->posts =  new ArrayCollection();
     }
 }

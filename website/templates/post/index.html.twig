@@ -1,14 +1,12 @@
 {% extends "base.html.twig" %}
 
 {% block content %}
-    <h1>{{ topic.title }}</h1>
-    {{ topic.description }}
-    {% for item in topic.products %}
-        <h1>{{ item.title }}</h1>
-        <p>{{ item.textField }}</p>
+    {%  for topic in topics %}
+        {{ topic.title }}
+        {{ topic.id }}
         <ul class="actions">
-            <li><a href="{{ path('postspost_show_id', {slug: topic.slug, id: topic.id}) }}" class="button big">
-                    Read More</a></li>
+            <li><a class="button big" href="{{ path('postspost_show_slug', {slug: topic.slug}) }}">Read</a> </li>
         </ul>
-    {% endfor %}
+
+    {%  endfor %}
 {% endblock content %}

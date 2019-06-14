@@ -8,4 +8,8 @@
 {% block content %}
     <h1>{{ post.title }}</h1>
     <p>{{ post.textfield }}</p>
+
+    <ul class="actions">
+        <li><a class="button big" href="{{ request->get }}">Back</a></li>
+    </ul>
 {% endblock content %}

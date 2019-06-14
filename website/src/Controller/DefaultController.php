@@ -21,6 +21,8 @@ class DefaultController extends AbstractController
     {
         // get home page
         $message = "Message in the bottle";
+        $em = $this->getDoctrine()->getManager();
+
 
         return $this->render(
             'home.html.twig', ['message' => $message]
@@ -46,4 +48,5 @@ class DefaultController extends AbstractController
 
         return $this->render('layouts/sidebar.html.twig', ['topics' => $topics]);
     }
+
 }
