@@ -2,12 +2,13 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Topic
  *
- * @ORM\Table(name="topic", uniqueConstraints={@ORM\UniqueConstraint(name="topic_title_key", columns={"title"})})
+ * @ORM\Table(name="topic", uniqueConstraints={@ORM\UniqueConstraint(name="topic_title_key", columns={"title"}), @ORM\UniqueConstraint(name="topic_slug_key", columns={"slug"})})
  * @ORM\Entity
  */
 class Topic
@@ -35,13 +36,6 @@ class Topic
      * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
-
-    /**
-     * @var \DateTime|null
-     *
-     * @ORM\Column(name="created_at", type="date", nullable=true, options={"default"="CURRENT_DATE"})
-     */
-    private $createdAt = 'CURRENT_DATE';
 
     /**
      * @return string|null
@@ -92,6 +86,29 @@ class Topic
     }
 
     /**
+     * @return string|null
+     */
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param string|null $slug
+     */
+    public function setSlug(?string $slug): void
+    {
+        $this->slug = $slug;
+    }
+
+    /**
+     * @var \DateTime|null
+     *
+     * @ORM\Column(name="created_at", type="date", nullable=true, options={"default"="CURRENT_DATE"})
+     */
+    private $createdAt = 'CURRENT_DATE';
+
+    /**
      * @return int
      */
     public function getId(): int
@@ -99,5 +116,25 @@ class Topic
         return $this->id;
     }
 
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="slug", type="string", length=128, nullable=true)
+     */
+    private $slug;
 
+
+    /**
+     * @var
+     * @ORM\OneToMany(targetEntity="App\Entity\Post", mappedBy="topic")
+     */
+    private $posts;
+
+    /**
+     * @return Collection/Post
+     */
+    public function getProducts() : Collection
+    {
+        return $this->posts;
+    }
 }

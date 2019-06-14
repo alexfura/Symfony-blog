@@ -3,11 +3,10 @@
 
 namespace App\Controller;
 
-
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Entity\Topic;
+use App\Entity\Post;
 
 
 class DefaultController extends AbstractController
@@ -35,7 +34,7 @@ class DefaultController extends AbstractController
     public function about()
     {
         // get about page
-        $about_message = "Get info about this website";
+        $about_message = "About:";
         return $this->render(
             'about.html.twig', ['message' => $about_message]
         );

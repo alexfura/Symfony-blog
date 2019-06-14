@@ -4,9 +4,8 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\Post;
 use App\Entity\Topic;
-use Symfony\Component\HttpFoundation\Response;
+use App\Entity\Post;
 
 /**
  * @Route("/post", name="posts")
@@ -21,26 +20,27 @@ class PostController extends AbstractController
     {
         $topics = $this->getDoctrine()->getRepository(Topic::class)->findAll();
         return $this->render('post/index.html.twig', [
-            'controller_name' =>  $topics,
+            'topics' =>  $topics,
         ]);
+    }
+//
+    /**
+     * @Route("/{slug}", name="post_show_slug")
+     */
+    public function showTopicPostsBySlug(Topic $topic)
+    {
+        return $this->render('post/index.html.twig', ['topic' => $topic]);
     }
 
     /**
-     * @Route("/{slug}", name="article_show_slug")
+     * @param Topic $topic
+     * @param Post $post
+     * @Route("/{slug}/{id}", name="post_show_id")
      */
-    public function showPostBySlug($slug)
-    {
-        return new Response($slug);
-    }
 
-//    /**
-//     * @param string $slug
-//     * @param int $id
-//     * @Route("/{slug}/{id}", name="article_show_id", requirements={"slug"="^[a-z0-9]+(?:-[a-z0-9]+)*$"}", "id"="\d+"}
-//     * show page of choosen topic by id
-//     */
-//    public function showPostById(string $slug, int $id)
-//    {
-//
-//    }
+    public function showPostById(Topic $topic, $id)
+    {
+        $post = $topic->getProducts()->get($id);
+        return $this->render('post/post.html.twig', ['post' => $post]);
+    }
 }
