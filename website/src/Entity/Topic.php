@@ -163,7 +163,6 @@ class Topic
                 $post->setTopic(null);
             }
         }
-
         return $this;
     }
 }

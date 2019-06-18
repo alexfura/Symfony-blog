@@ -52,21 +52,19 @@ class Post
     private $createdAt = 'CURRENT_DATE';
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(name="author", type="string", length=122, nullable=true)
-     */
-    private $author;
-
-    /**
      * @var \Topic
      *
-     * @ORM\ManyToOne(targetEntity="Topic")
+     * @ORM\ManyToOne(targetEntity="Topic", inversedBy="posts")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="topic_id", referencedColumnName="id")
      * })
      */
     private $topic;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="posts")
+     */
+    private $author;
 
     /**
      * @return string
@@ -116,21 +114,6 @@ class Post
         $this->createdAt = $createdAt;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getAuthor(): ?string
-    {
-        return $this->author;
-    }
-
-    /**
-     * @param string|null $author
-     */
-    public function setAuthor(?string $author): void
-    {
-        $this->author = $author;
-    }
 
     /**
      * @return \Topic
@@ -148,5 +131,15 @@ class Post
         $this->topic = $topic;
     }
 
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
 
+    public function setAuthor(?User $author): self
+    {
+        $this->author = $author;
+
+        return $this;
+    }
 }

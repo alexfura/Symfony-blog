@@ -50,7 +50,11 @@
                     <h2>Menu</h2>
                 </header>
                 <ul>
-                    <li><a href="{{ path('home') }}"></a></li>
+                    {% if app.user %}
+                        Hello app.user!
+                    {% else %}
+                        <li><a href="{{ path('app_login') }}">Login</a></li>
+                    {% endif %}
                     <li>
                         <span class="opener">Topics</span>
                         <ul>
