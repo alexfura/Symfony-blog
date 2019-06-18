@@ -1,4 +1,4 @@
 {# templates/layouts/sidebar.html.twig #}
 {%  for topic in topics %}
-    <li><a href="{{ path('postspost_show_slug', {slug: topic.slug}) }}">{{ topic.title }}</a> </li>
+    <li><a href="{{ path('postsposts_by_topic', {slug: topic.slug}) }}">{{ topic.title }}</a> </li>
 {% endfor %}

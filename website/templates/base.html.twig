@@ -1,14 +1,12 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>AF:{% block title %}{% endblock title %}</title>
+    <title>AF: {% block title %}{% endblock title %}</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    {%  block stylesheets %}
-        {# 'app' must match the first argument to addEntry() in webpack.config.js #}
+    {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
-        <link rel="stylesheet" href="assets/css/main.css" />
-    {%  endblock %}
+    {% endblock stylesheets %}
 </head>
 <body class="is-preload">
 
@@ -18,10 +16,9 @@
     <!-- Main -->
     <div id="main">
         <div class="inner">
-
             <!-- Header -->
             <header id="header">
-                <a href="#" class="logo">Alex Furhailov Blog</a>
+                <a href="{{ path('home') }}" class="logo"><strong>Alex Furghailov Blog</strong> </a>
                 <ul class="icons">
                     <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
                     <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
@@ -30,32 +27,9 @@
                     <li><a href="#" class="icon fa-medium"><span class="label">Medium</span></a></li>
                 </ul>
             </header>
-
-            <!-- Banner -->
-            <section id="banner">
-                <div class="content">
-                    {%  block content %}
-                    {%  endblock %}
-                </div>
-                <span class="image object">
-                    <img src="images/pic10.jpg" alt="" />
-                </span>
-            </section>
-
-            <!-- Section -->
-
-
-            <!-- Section -->
-
-            <section>
-                <header class="major">
-                    <h2></h2>
-                </header>
-                <div class="posts">
-                    {% block posts %}
-                    {% endblock posts %}
-                </div>
-            </section>
+            {% block content %}
+                <div class=""
+            {% endblock content %}
         </div>
     </div>
 
@@ -76,9 +50,14 @@
                     <h2>Menu</h2>
                 </header>
                 <ul>
-                    {% block sidebar_links %}
-                        {{ render_esi(controller('App\\Controller\\DefaultController::showSideBar')) }}
-                    {%  endblock sidebar_links %}
+                    <li><a href="{{ path('home') }}"></a></li>
+                    <li>
+                        <span class="opener">Topics</span>
+                        <ul>
+                            {{ render_esi(controller('App\\Controller\\DefaultController::showSideBar')) }}
+                        </ul>
+                    </li>
+                    <li><a href="{{ path('about') }}">About</a></li>
                 </ul>
             </nav>
 
@@ -106,6 +85,20 @@
                 </ul>
             </section>
 
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Get in touch</h2>
+                </header>
+                <p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+                <ul class="contact">
+                    <li class="fa-envelope-o"><a href="#">information@untitled.tld</a></li>
+                    <li class="fa-phone">(000) 000-0000</li>
+                    <li class="fa-home">1234 Somewhere Road #8254<br />
+                        Nashville, TN 00000-0000</li>
+                </ul>
+            </section>
+
             <!-- Footer -->
             <footer id="footer">
                 <p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
@@ -116,18 +109,9 @@
 
 </div>
 
-{%  block javascripts %}
 <!-- Scripts -->
-{#<script src="assets/js/jquery.min.js"></script>#}
-{#<script src="assets/js/browser.min.js"></script>#}
-{#<script src="assets/js/breakpoints.min.js"></script>#}
-{#<script src="assets/js/util.js"></script>#}
-{#<script src="assets/js/main.js"></script>#}
+{% block javascripts %}
     {{ encore_entry_script_tags('app') }}
-
-    <!-- Renders app.js & a webpack runtime.js file
-        <script src="/build/runtime.js"></script>
-        <script src="/build/app.js"></script> -->
-{%  endblock javascripts %}
+{% endblock javascripts %}
 </body>
 </html>

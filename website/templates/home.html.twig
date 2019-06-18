@@ -6,10 +6,33 @@
 {% endblock title %}
 
 {% block content %}
-<div class="content">
-    <header>
-        <h1>{{ message }}</h1>
-    </header>
-</div>
+    <!-- Banner -->
+    <section id="banner">
+        <div class="content">
+            <h1>Welcome!</h1>
+            <p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. Pellentesque sapien ac quam. Lorem ipsum dolor sit nullam.</p>
+        </div>
+        <span class="image object">
+            <img src="{{ asset('build/images/pic11.jpg') }}" alt="" />
+        </span>
+    </section>
+    <section>
+        <header class="major">
+            <h2>Read last posts:</h2>
+        </header>
+        <div class="posts">
+            {% for post in posts %}
+            <article>
+                <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
+                <h3>{{ post.title }}</h3>
+                <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+                <ul class="actions">
+                    <li><a href="{{ path('postspost_by_id',  {post_id: post.id}) }}" class="button">More</a></li>
+                </ul>
+            </article>
+            {% endfor %}
+        </div>
+    </section>
+
 {% endblock content %}
 

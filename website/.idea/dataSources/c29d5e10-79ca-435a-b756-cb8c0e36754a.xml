@@ -23,8 +23,8 @@
       <Owner>postgres</Owner>
       <IntrospectionStateNumber>1006</IntrospectionStateNumber>
       <Visible>1</Visible>
-      <Relations>sequence|table|99015|98928|7
-sequence|table|99034|98942|8
+      <Relations>sequence|table|99034|98942|8
+sequence|table|99015|98928|7
 </Relations>
     </database>
     <role id="5" parent="1" name="pg_monitor">

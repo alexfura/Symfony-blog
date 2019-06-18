@@ -15,17 +15,17 @@ class DefaultController extends AbstractController
      *
      * Matches "/"
      *
-     * @Route("/", name="main")
+     * @Route("/", name="home")
      */
     public function index()
     {
         // get home page
-        $message = "Message in the bottle";
+        $message = "Random message";
         $em = $this->getDoctrine()->getManager();
-
+        $posts = $em->getRepository(Post::class)->getLastPosts();
 
         return $this->render(
-            'home.html.twig', ['message' => $message]
+            'home.html.twig', ['message' => $message, 'posts' =>  $posts]
         );
 
     }
@@ -48,5 +48,4 @@ class DefaultController extends AbstractController
 
         return $this->render('layouts/sidebar.html.twig', ['topics' => $topics]);
     }
-
 }

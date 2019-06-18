@@ -17,7 +17,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 class PostController extends AbstractController
 {
     /**
-     * @Route("/", name="post")
+     * @Route("/", name="topics")
      * returns topics
      */
     public function index()
@@ -29,7 +29,7 @@ class PostController extends AbstractController
     }
 
     /**
-     * @Route("/{slug}", name="post_show_slug")
+     * @Route("/{slug}", name="posts_by_topic", requirements={"slug"="^[a-z]+(?:-[a-z]+)*$"})
      */
     public function showTopicPostsBySlug(Request $request, Topic $topic, PaginatorInterface $paginator)
     {
@@ -47,19 +47,29 @@ class PostController extends AbstractController
     /**
      * @param Topic $topic
      * @param Post $post
-     * @Route("/{slug}/{post_id}", name="post_show_id")
+     * @Route("/{slug}/{post_id}", name="post_by_topic")
      * @ParamConverter("post", options={"id" = "post_id"})
+     * @return mixed
      */
 
-    public function showPostById(Topic $topic, Post $post)
+    public function showPostByTopic(Topic $topic, Post $post)
     {
         if($topic->getPosts()->contains($post))
         {
-            return $this->render('post/post.html.twig', ['post' => $post, 'topic' => $topic]);
+            return $this->render('post/post.html.twig', ['post' => $post]);
         }
         else
         {
             throw $this->createNotFoundException('Not found');
         }
+    }
+
+    /**
+     * @Route("/{post_id}", name="post_by_id", requirements={"id"="\d+"})
+     * @ParamConverter("post", options={"id" = "post_id"})
+     */
+    public function getPostById(Post $post)
+    {
+        return $this->render('post/post.html.twig', ['post' => $post]);
     }
 }
