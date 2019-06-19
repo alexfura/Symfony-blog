@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints\File as File;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Post
@@ -65,6 +65,15 @@ class Post
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="posts")
      */
     private $author;
+
+    /**
+     * holds name of image
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Image
+     */
+    private $image;
+
+
 
     /**
      * @return string
@@ -139,6 +148,18 @@ class Post
     public function setAuthor(?User $author): self
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }
