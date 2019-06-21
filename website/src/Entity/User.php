@@ -7,10 +7,14 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Doctrine\ORM\Mapping\Table;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
- * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
+ * @Table(name="custom_user")
+ * @UniqueEntity(fields="email", message="Email already taken")
+ * @UniqueEntity(fields="username", message="Username already taken")
  */
 class User implements UserInterface
 {
@@ -23,6 +27,8 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\Email()
+     * @Assert\NotBlank()
      */
     private $email;
 
@@ -41,6 +47,33 @@ class User implements UserInterface
      * @ORM\OneToMany(targetEntity="App\Entity\Post", mappedBy="author")
      */
     private $posts;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $first_name;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $second_name;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $birth_date;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Image
+     */
+    private $headshot;
+
+    /**
+     * @ORM\Column(type="string", length=255, unique=true, nullable=false)
+     * @Assert\NotBlank()
+     */
+    private $username;
 
     public function __construct()
     {
@@ -83,6 +116,7 @@ class User implements UserInterface
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
         $roles[] = 'ROLE_USER';
+        $roles[] = 'ROLE_ADMIN';
 
         return array_unique($roles);
     }
@@ -153,6 +187,61 @@ class User implements UserInterface
                 $post->setAuthor(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getFirstName(): ?string
+    {
+        return $this->first_name;
+    }
+
+    public function setFirstName(string $first_name): self
+    {
+        $this->first_name = $first_name;
+
+        return $this;
+    }
+
+    public function getSecondName(): ?string
+    {
+        return $this->second_name;
+    }
+
+    public function setSecondName(string $second_name): self
+    {
+        $this->second_name = $second_name;
+
+        return $this;
+    }
+
+    public function getBirthDate(): ?\DateTimeInterface
+    {
+        return $this->birth_date;
+    }
+
+    public function setBirthDate(\DateTimeInterface $birth_date): self
+    {
+        $this->birth_date = $birth_date;
+
+        return $this;
+    }
+
+    public function getHeadshot(): ?string
+    {
+        return $this->headshot;
+    }
+
+    public function setHeadshot(?string $headshot): self
+    {
+        $this->headshot = $headshot;
+
+        return $this;
+    }
+
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
 
         return $this;
     }
