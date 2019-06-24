@@ -51,7 +51,7 @@
                 </header>
                 <ul>
                     {% if app.user %}
-                        Hello app.user!
+                        <li><a href="#">Hi, {{ app.user }}</a></li>
                     {% else %}
                         <li><a href="{{ path('app_login') }}">Login</a></li>
                         <li><a href="{{ path('app_register') }}">Register</a> </li>

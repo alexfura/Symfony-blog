@@ -6,7 +6,7 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -20,7 +20,7 @@ class RegistrationFormType extends AbstractType
             ->add('username')
             ->add('firstName')
             ->add('secondName')
-            ->add('email')
+            ->add('email', EmailType::class)
             ->add('password',
                  RepeatedType::class, [
                     'type' => PasswordType::class,
