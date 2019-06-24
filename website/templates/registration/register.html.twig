@@ -5,8 +5,8 @@
 {% block content %}
     <section>
         <h1>Register</h1>
-
         {{ form_start(registrationForm) }}
+        {{ form_errors(registrationForm) }}
         {{ form_row(registrationForm.firstName) }}
         {{ form_row(registrationForm.secondName) }}
         {{ form_row(registrationForm.username) }}
@@ -16,7 +16,7 @@
 
 
         <br/>
-        <button class="btn">Register</button>
+        <button class="btn" type="submit">Register</button>
         {{ form_end(registrationForm) }}
     </section>
 

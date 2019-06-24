@@ -6,10 +6,10 @@ fos_user:
     address: "furgaylov5@gmail.com"
     sender_name: "Alex"
 
-  registration:
-    confirmation:
-      enabled: true
-      template:   '@FOSUser/Registration/email.txt.twig'
+#  registration:
+#    confirmation:
+#      enabled: true
+#      template:   '@FOSUser/Registration/email.txt.twig'
 
 #  resseting:
 #    email:
