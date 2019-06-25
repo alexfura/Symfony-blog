@@ -75,11 +75,22 @@ class User implements UserInterface
      */
     private $username;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $status;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $email_token;
+
     public function __construct()
     {
         $this->posts = new ArrayCollection();
+        // set email confirmation token
+        $this->setEmailToken();
     }
-
 
     public function getId(): ?int
     {
@@ -252,5 +263,42 @@ class User implements UserInterface
     public function __toString()
     {
         return $this->username;
+    }
+
+    public function getStatus(): ?bool
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?bool $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getEmailToken(): ?string
+    {
+        return $this->email_token;
+    }
+
+    public function setEmailToken()
+    {
+        $this->email_token = $this->getRandomToken();
+    }
+
+    /**
+     * @param int $bytes
+     * @return string
+     * @throws \Exception
+     */
+    public function getRandomToken($bytes=32)
+    {
+        if(!isset($bytes) || $bytes <= 12)
+        {
+            $bytes = 32;
+        }
+        // use md5 to prevent from error in DB and url
+        return md5(random_bytes($bytes));
     }
 }

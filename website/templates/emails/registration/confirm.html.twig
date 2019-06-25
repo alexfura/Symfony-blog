@@ -1,0 +1,4 @@
+{# templates/emails/registration/confirm.html.twig #}
+<h3>Hi, {{ user.username }} from {{ path('home') }}</h3>
+<h2>To activate your account open this link: </h2>
+<a href="{{ path('user_confirm', {email_token: user.getEmailToken}) }}">activation link</a>
