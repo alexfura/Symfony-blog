@@ -69,7 +69,7 @@ class RegistrationController extends AbstractController
             // show error if message was not send
             if(!$mailer->send($message))
             {
-                $form->addError(new FormError("Can't send confirmation email"));
+                return new Response("Cannot send email");
             }
 
         }
