@@ -24,6 +24,9 @@ class RessetingController extends AbstractController
     }
 
     /**
+     * @param Request $request
+     * @return Response
+     * @throws \Exception
      * @Route("/resseting", name="resseting")
      */
     public function index(Request $request)
@@ -80,13 +83,27 @@ class RessetingController extends AbstractController
     public function confirmAction(PasswordResetRequest $resetting)
     {
         $form = $form = $this->createForm(NewPasswordType::class);
+        $em = $this->getDoctrine()->getManager();
+
         if(!$resetting->isExpired())
         {
-            return $this->render(':emails:reset.html.twig', [
-            'resetting_form' => $form->createView(),
+            if($form->isSubmitted() && $form->isValid())
+            {
+                $user = $em->getRepository(User::class)->findOneBy(['email' => $resetting->getEmail()]);
+
+                $user->setPassword($form->get('password'));
+
+                $em->merge($user);
+                $em->remove($resetting);
+                $em->flush();
+            }
+            return $this->render('resetting/new_password.html.twig', [
+            'password_form' => $form->createView(),
             ]);
         }
 
+        $em->remove($resetting);
+        $em->flush();
         return new Response("This link is not valid");
     }
 }
