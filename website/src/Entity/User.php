@@ -85,11 +85,14 @@ class User implements UserInterface
      */
     private $email_token;
 
+    /**
+     * User constructor.
+     */
     public function __construct()
     {
         $this->posts = new ArrayCollection();
         // set email confirmation token
-        $this->setEmailToken();
+        $this->setEmailToken(self::generateToken());
     }
 
     public function getId(): ?int
@@ -282,9 +285,9 @@ class User implements UserInterface
         return $this->email_token;
     }
 
-    public function setEmailToken()
+    public function setEmailToken($token)
     {
-        $this->email_token = $this->getRandomToken();
+        $this->email_token = $token;
     }
 
     /**
@@ -292,7 +295,12 @@ class User implements UserInterface
      * @return string
      * @throws \Exception
      */
-    public function getRandomToken($bytes=32)
+    public function getRandomToken()
+    {
+        return $this->email_token;
+    }
+
+    public static function generateToken($bytes=32)
     {
         if(!isset($bytes) || $bytes <= 12)
         {

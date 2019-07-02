@@ -9,6 +9,7 @@ use App\Security\LoginFormAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Swift_Mailer;
 use Symfony\Component\Form\FormError;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -40,7 +41,8 @@ class RegistrationController extends AbstractController
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid())
+        {
             $user = $form->getData();
             // encode the plain password
             $user->setPassword(
@@ -71,7 +73,6 @@ class RegistrationController extends AbstractController
             {
                 return new Response("Cannot send email");
             }
-
         }
 
         return $this->render('registration/register.html.twig', [
@@ -90,6 +91,7 @@ class RegistrationController extends AbstractController
 
         // update status of user
         $user->setStatus(true);
+        $user->setEmailToken(null);
         $em = $this->getDoctrine()->getManager();
         $em->merge($user);
         $em->flush();
