@@ -23,7 +23,6 @@ use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
  */
 class RegistrationController extends AbstractController
 {
-
     /**
      * @Route("/", name="app_register")
      * @param Request $request
@@ -88,7 +87,6 @@ class RegistrationController extends AbstractController
     public function confirmEmail(User $user)
     {
         // activate user by email random token
-
         // update status of user
         $user->setStatus(true);
         $user->setEmailToken(null);

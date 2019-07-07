@@ -1,0 +1,14 @@
+{# templates/profile/edit.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title  %}
+    Edit profile
+{% endblock title %}
+
+{% block content %}
+    <section>
+        {{ form_start(form, {'method': 'PUT'}) }}
+        <button class="btn" type="submit">Send</button>
+        {{ form_end(form) }}
+    </section>
+{% endblock content %}

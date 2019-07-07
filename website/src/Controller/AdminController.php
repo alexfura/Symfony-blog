@@ -22,6 +22,19 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/"
+     * @Route("/posts", name="posts_admin")
      */
+    public function showPosts()
+    {
+
+    }
+
+    /**
+     * @Route("/users", name="users_admin")
+     */
+
+    public function showUsers()
+    {
+
+    }
 }

@@ -8,19 +8,29 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+
 class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email')
-            ->add('roles')
-            ->add('password')
+//            ->add('email')
+//            ->add('roles')
+//            ->add('password')
             ->add('first_name')
-            ->add('second_name')
-            ->add('birth_date')
-            ->add('headshot', FileType::class, ['label' => ''] )
-        ;
+            ->add('second_name');
+//            ->add('birth_date')
+//            ->add('headshot', FileType::class, [
+//                'label' => 'Image',
+//                'mapped' => false,
+//                'required' => false,
+//                'constraints' => [
+//                    'maxSize' => '4M',
+//                    'mimeTypes' => [
+//                        'image/*'
+//                    ]
+//                ]
+//                ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -63,11 +63,7 @@ class User implements UserInterface
      */
     private $birth_date;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\Image
-     */
-    private $headshot;
+
 
     /**
      * @ORM\Column(type="string", length=255, unique=true, nullable=false)
@@ -84,6 +80,11 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $email_token;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $bio;
 
     /**
      * User constructor.
@@ -241,18 +242,6 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getHeadshot(): ?string
-    {
-        return $this->headshot;
-    }
-
-    public function setHeadshot(?string $headshot): self
-    {
-        $this->headshot = $headshot;
-
-        return $this;
-    }
-
     public function setUsername(string $username): self
     {
         $this->username = $username;
@@ -308,5 +297,17 @@ class User implements UserInterface
         }
         // use md5 to prevent from error in DB and url
         return md5(random_bytes($bytes));
+    }
+
+    public function getBio(): ?string
+    {
+        return $this->bio;
+    }
+
+    public function setBio(?string $bio): self
+    {
+        $this->bio = $bio;
+
+        return $this;
     }
 }

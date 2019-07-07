@@ -51,7 +51,7 @@
                 </header>
                 <ul>
                     {% if app.user %}
-                        <li><a href="#">You're logged in as, {{ app.user }}</a></li>
+                        <li><a href="{{ path('profile', {id : app.user.id}) }}">Hi, {{ app.user }}</a></li>
                         <li><a href="{{ path('app_logout') }}">Logout</a></li>
                     {% else %}
                         <li><a href="{{ path('app_login') }}">Login</a></li>
