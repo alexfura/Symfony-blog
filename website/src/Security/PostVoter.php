@@ -11,7 +11,7 @@ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
 class PostVoter extends Voter
 {
-    const EDIT = 'edit';
+    const EDIT = 'post_edit';
 
     protected function supports($attribute, $subject)
     {
