@@ -19,7 +19,7 @@ class UserVoter extends Voter
         if (!in_array($attribute, [self::EDIT])) {
             return false;
         }
-        
+
         if (!$subject instanceof User) {
             return false;
         }

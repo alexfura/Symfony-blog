@@ -6,17 +6,11 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\HttpFoundation\Request;
-use FOS\RestBundle\Controller\Annotations as Rest;
-use FOS\RestBundle\Controller\AbstractFOSRestController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
-use Symfony\Component\Serializer\Encoder\XmlEncoder;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
-use Symfony\Component\Serializer\Serializer;
+
 
 /**
  * Class ProfileController
@@ -42,17 +36,24 @@ class ProfileController extends AbstractController
     {
         $this->denyAccessUnlessGranted('user_edit', $user);
 
+        $form = $this->createForm(UserType::class, $user);
+        $form->handleRequest($request);
 
-        return new Response($user->getId());
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $em = $this->getDoctrine()->getManager();
+//            $this->setUserData($form, $user);
+            $user->setFirstName($form->get('first_name'));
+            $user->setSecondName($form->get('second_name'));
+            $em->merge($user);
+            $em->flush();
+        }
+
+        return $this->render('user/edit.html.twig', ['form' => $form->createView()]);
     }
 
 
-    public function getUserData()
-    {
-
-    }
-
-    public function setUserData()
+    public function setUserData(FormTypeInterface $form, User &$user)
     {
 
     }

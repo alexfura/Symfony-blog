@@ -25,15 +25,11 @@ class Topic
     private $id;
 
     /**
-     * @var string|null
-     *
      * @ORM\Column(name="title", type="string", length=122, nullable=true)
      */
     private $title;
 
     /**
-     * @var string|null
-     *
      * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
@@ -164,5 +160,10 @@ class Topic
             }
         }
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getTitle();
     }
 }

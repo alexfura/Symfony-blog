@@ -21,6 +21,11 @@ class Image
      */
     private $file;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $uploadedAt;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -34,6 +39,18 @@ class Image
     public function setFile(string $file): self
     {
         $this->file = $file;
+
+        return $this;
+    }
+
+    public function getUploadedAt(): ?\DateTimeInterface
+    {
+        return $this->uploadedAt;
+    }
+
+    public function setUploadedAt(\DateTimeInterface $uploadedAt): self
+    {
+        $this->uploadedAt = $uploadedAt;
 
         return $this;
     }

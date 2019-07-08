@@ -5,7 +5,7 @@
         {{ topic.title }}
         {{ topic.id }}
         <ul class="actions">
-            <li><a class="button big" href="{{ path('poststopics', {slug: topic.slug}) }}">Read</a> </li>
+            <li><a class="button big" href="{{ path('postsposts_by_topic', {slug: topic.slug}) }}">Read</a> </li>
         </ul>
     {%  endfor %}
 {% endblock content %}

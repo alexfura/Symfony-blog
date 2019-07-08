@@ -4,17 +4,12 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\RegistrationFormType;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-use App\Security\LoginFormAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Swift_Mailer;
-use Symfony\Component\Form\FormError;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
 /**
  * Class RegistrationController
  * @package App\Controller
@@ -23,21 +18,29 @@ use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
  */
 class RegistrationController extends AbstractController
 {
+    private $passwordEncoder;
+    private $mailer;
+
+    /**
+     * RegistrationController constructor.
+     * @param UserPasswordEncoderInterface $passwordEncoder
+     * @param Swift_Mailer $mailer
+     */
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder, Swift_Mailer $mailer)
+    {
+        $this->passwordEncoder = $passwordEncoder;
+        $this->mailer = $mailer;
+    }
+
+
     /**
      * @Route("/", name="app_register")
      * @param Request $request
-     * @param UserPasswordEncoderInterface $passwordEncoder
-     * @param GuardAuthenticatorHandler $guardHandler
-     * @param LoginFormAuthenticator $authenticator
-     * @param Swift_Mailer $mailer
      * @return Response
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder,
-                             GuardAuthenticatorHandler $guardHandler,
-                             LoginFormAuthenticator $authenticator, Swift_Mailer $mailer): Response
+    public function register(Request $request): Response
     {
-        $user = new User();
-        $form = $this->createForm(RegistrationFormType::class, $user);
+        $form = $this->createForm(RegistrationFormType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid())
@@ -45,7 +48,7 @@ class RegistrationController extends AbstractController
             $user = $form->getData();
             // encode the plain password
             $user->setPassword(
-                $passwordEncoder->encodePassword(
+                $this->passwordEncoder->encodePassword(
                     $user,
                     $form->get('password')->getData()
                 )
@@ -68,7 +71,7 @@ class RegistrationController extends AbstractController
                 );
 
             // show error if message was not send
-            if(!$mailer->send($message))
+            if(!$this->mailer->send($message))
             {
                 return new Response("Cannot send email");
             }

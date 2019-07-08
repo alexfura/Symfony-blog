@@ -11,8 +11,34 @@
         <h3>{{ user.firstName }} {{ user.secondName }}</h3>
         <h4>{{ user.email }}</h4>
         <p>{{ user.bio }}</p>
+        {% if app.user == user %}
         <ul class="actions">
             <li><a class="button" href="{{ path('user_edit', {id:user.id}) }}">Edit profile</a> </li>
         </ul>
+        {% endif %}
+    </section>
+
+    <section>
+        <h4>Your posts</h4>
+        <div class="table-wrapper">
+            <table class="alt">
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for post in user.posts %}
+                <tr>
+                    <td>{{ post.title }}</td>
+                    <td>{{ post.author }}</td>
+                    <td>{{ post.topic }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
     </section>
 {% endblock content %}

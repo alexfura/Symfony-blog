@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Entity;
-
+use App\Entity\Topic;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -52,12 +52,8 @@ class Post
     private $createdAt = 'CURRENT_DATE';
 
     /**
-     * @var \Topic
      *
-     * @ORM\ManyToOne(targetEntity="Topic", inversedBy="posts")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="topic_id", referencedColumnName="id")
-     * })
+     * @ORM\ManyToOne(targetEntity="App\Entity\Topic", inversedBy="posts")
      */
     private $topic;
 
@@ -65,9 +61,6 @@ class Post
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="posts")
      */
     private $author;
-
-
-
 
     /**
      * @return string
@@ -121,15 +114,15 @@ class Post
     /**
      * @return \Topic
      */
-    public function getTopic(): \Topic
+    public function getTopic(): ?Topic
     {
         return $this->topic;
     }
 
     /**
-     * @param \Topic $topic
+     * @param Topic $topic
      */
-    public function setTopic(\Topic $topic): void
+    public function setTopic(Topic $topic): void
     {
         $this->topic = $topic;
     }
