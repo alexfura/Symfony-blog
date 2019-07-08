@@ -18,19 +18,19 @@ class UserType extends AbstractType
 //            ->add('roles')
 //            ->add('password')
             ->add('first_name')
-            ->add('second_name');
-//            ->add('birth_date')
-//            ->add('headshot', FileType::class, [
-//                'label' => 'Image',
-//                'mapped' => false,
-//                'required' => false,
-//                'constraints' => [
-//                    'maxSize' => '4M',
-//                    'mimeTypes' => [
-//                        'image/*'
-//                    ]
-//                ]
-//                ]);
+            ->add('second_name')
+            ->add('birth_date')
+            ->add('headshot', FileType::class, [
+                'label' => 'Image',
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    'maxSize' => '4M',
+                    'mimeTypes' => [
+                        'image/*'
+                    ]
+                ]
+                ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

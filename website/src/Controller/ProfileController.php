@@ -30,7 +30,7 @@ class ProfileController extends AbstractController
     }
 
     /**
-     * @Route("/user/{id}/edit", name="user_edit", methods={"PUT", "GET"})
+     * @Route("/{id}/edit", name="user_edit", methods={"PUT", "GET"})
      */
     public function putUserAction(Request $request, User $user)
     {

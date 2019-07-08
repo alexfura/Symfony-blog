@@ -59,7 +59,7 @@ class User implements UserInterface
     private $second_name;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="date", nullable=true)
      */
     private $birth_date;
 
@@ -85,6 +85,11 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $bio;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Image", cascade={"persist", "remove"})
+     */
+    private $headshot;
 
     /**
      * User constructor.
@@ -307,6 +312,18 @@ class User implements UserInterface
     public function setBio(?string $bio): self
     {
         $this->bio = $bio;
+
+        return $this;
+    }
+
+    public function getHeadshot(): ?Image
+    {
+        return $this->headshot;
+    }
+
+    public function setHeadshot(?Image $headshot): self
+    {
+        $this->headshot = $headshot;
 
         return $this;
     }

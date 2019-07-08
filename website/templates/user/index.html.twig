@@ -7,7 +7,11 @@
 
 {% block content %}
     <section>
-        <span class="image left"><img src="{{ asset('build/images/pic11.jpg') }}" alt="" /></span>
+        {% if user.headshot %}
+        <span class="image left"><img src="{{ user.headshot.file }}" alt="" /></span>
+        {% else %}
+            <h3>image</h3>
+        {% endif %}
         <h3>{{ user.firstName }} {{ user.secondName }}</h3>
         <h4>{{ user.email }}</h4>
         <p>{{ user.bio }}</p>
@@ -19,7 +23,7 @@
     </section>
 
     <section>
-        <h4>Your posts</h4>
+        <h4>{{ user.firstName }}  {{ user.secondName }}('s) posts</h4>
         <div class="table-wrapper">
             <table class="alt">
                 <thead>
