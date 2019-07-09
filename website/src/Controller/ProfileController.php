@@ -30,32 +30,35 @@ class ProfileController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="user_edit", methods={"PUT", "GET"})
+     * @param Request $request
+     * @param User $user
+     * @return Response
+     * @Route("/{id}/edit", name="user_edit")
      */
-    public function putUserAction(Request $request, User $user)
+    public function putUserAction(User $user, Request $request)
     {
-        $this->denyAccessUnlessGranted('user_edit', $user);
+//        $this->denyAccessUnlessGranted('user_edit', $user);
 
         $form = $this->createForm(UserType::class, $user);
+
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid())
         {
             $em = $this->getDoctrine()->getManager();
-//            $this->setUserData($form, $user);
-            $user->setFirstName($form->get('first_name'));
-            $user->setSecondName($form->get('second_name'));
+            
             $em->merge($user);
             $em->flush();
+
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('user/edit.html.twig', ['form' => $form->createView()]);
     }
 
-
     public function setUserData(FormTypeInterface $form, User &$user)
     {
-        
+
     }
 }
 

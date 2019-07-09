@@ -8,18 +8,14 @@
 {% block content %}
     <section>
         <div class="row gtr-uniform">
-        {{ form_start(form, {'method': 'PUT'}) }}
-        <div class="col-12">
+            <div class="col-12">
+
+            {{ form_start(form) }}{{ form_errors(form) }}
             {{ form_row(form.first_name) }}
             {{ form_row(form.second_name) }}
-        </div>
-        <br/>
-        <div class="col-12">
-            <ul class="actions">
-                <li><input type="submit" value="Save" /></li>
-            </ul>
-        </div>
-        {{ form_end(form) }}
+
+            {{ form_end(form) }}
+            </div>
         </div>
     </section>
 {% endblock content %}
