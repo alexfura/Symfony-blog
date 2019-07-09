@@ -55,7 +55,7 @@ class ProfileController extends AbstractController
 
     public function setUserData(FormTypeInterface $form, User &$user)
     {
-
+        
     }
 }
 

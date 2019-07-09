@@ -7,22 +7,34 @@
 
 {% block content %}
     <section>
-        {% if user.headshot %}
-        <span class="image left"><img src="{{ user.headshot.file }}" alt="" /></span>
-        {% else %}
-            <h3>image</h3>
-        {% endif %}
-        <h3>{{ user.firstName }} {{ user.secondName }}</h3>
-        <h4>{{ user.email }}</h4>
-        <p>{{ user.bio }}</p>
-        {% if app.user == user %}
-        <ul class="actions">
-            <li><a class="button" href="{{ path('user_edit', {id:user.id}) }}">Edit profile</a> </li>
-        </ul>
-        {% endif %}
-    </section>
+        <div class="row">
+            {% if user.headshot %}
+                <span class="image left"><img src="{{ user.headshot.file }}" alt="can't load image" width="150"
+                                              height="450"/></span>
+            {% else %}
+                <h3>image</h3>
+            {% endif %}
+            <!-- Break -->
+            <div class="col-6 col-12-small">
+                <h3>{{ user.firstName }} {{ user.secondName }}</h3>
+                <h4>{{ user.email }}</h4>
+                <p>{{ user.bio }} In arcu accumsan arcu adipiscing accumsan orci ac. Felis id enim aliquet. Accumsan ac
+                    integer lobortis commodo ornare aliquet accumsan erat tempus amet porttitor. Ante commodo blandit
+                    adipiscing integer semper orci eget. Faucibus commodo adipiscing mi eu nullam accumsan morbi arcu
+                    ornare odio mi adipiscing nascetur lacus ac interdum morbi accumsan vis mi accumsan.
+                </p>
+                {% if app.user == user %}
+                    <ul class="actions">
+                        <li><a class="button" href="{{ path('user_edit', {id:user.id}) }}">Edit profile</a></li>
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
 
-    <section>
+
+
+
+        <hr class="major">
         <h4>{{ user.firstName }}  {{ user.secondName }}('s) posts</h4>
         <div class="table-wrapper">
             <table class="alt">
@@ -35,11 +47,11 @@
                 </thead>
                 <tbody>
                 {% for post in user.posts %}
-                <tr>
-                    <td>{{ post.title }}</td>
-                    <td>{{ post.author }}</td>
-                    <td>{{ post.topic }}</td>
-                </tr>
+                    <tr>
+                        <td>{{ post.title }}</td>
+                        <td>{{ post.author }}</td>
+                        <td>{{ post.topic }}</td>
+                    </tr>
                 {% endfor %}
             </table>
         </div>
