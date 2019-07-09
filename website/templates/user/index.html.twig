@@ -9,15 +9,15 @@
     <section>
         <div class="row">
             {% if user.headshot %}
-                <span class="image left"><img src="{{ user.headshot.file }}" alt="can't load image" width="150"
-                                              height="450"/></span>
+                <span class="image left fit"><img src="{{ user.headshot.file }}" alt="can't load image"
+                                              /></span>
             {% else %}
                 <h3>image</h3>
             {% endif %}
             <!-- Break -->
             <div class="col-6 col-12-small">
                 <h3>{{ user.firstName }} {{ user.secondName }}</h3>
-                <h4>{{ user.email }}</h4>
+                <h4>at {{ user.email }}</h4>
                 <p>{{ user.bio }} In arcu accumsan arcu adipiscing accumsan orci ac. Felis id enim aliquet. Accumsan ac
                     integer lobortis commodo ornare aliquet accumsan erat tempus amet porttitor. Ante commodo blandit
                     adipiscing integer semper orci eget. Faucibus commodo adipiscing mi eu nullam accumsan morbi arcu
@@ -41,8 +41,8 @@
                 <thead>
                 <tr>
                     <th>Title</th>
-                    <th>Description</th>
-                    <th>Price</th>
+                    <th>Author</th>
+                    <th>Topic</th>
                 </tr>
                 </thead>
                 <tbody>

@@ -12,7 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 
 /**
- * @Route("/post", name="posts")
+ * @Route("/posts", name="posts")
  */
 class PostController extends AbstractController
 {
