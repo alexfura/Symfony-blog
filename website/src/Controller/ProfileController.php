@@ -35,9 +35,9 @@ class ProfileController extends AbstractController
      * @return Response
      * @Route("/{id}/edit", name="user_edit")
      */
-    public function putUserAction(User $user, Request $request)
+    public function editUser(User $user, Request $request)
     {
-//        $this->denyAccessUnlessGranted('user_edit', $user);
+        $this->denyAccessUnlessGranted('user_edit', $user);
 
         $form = $this->createForm(UserType::class, $user);
 
@@ -46,7 +46,7 @@ class ProfileController extends AbstractController
         if($form->isSubmitted() && $form->isValid())
         {
             $em = $this->getDoctrine()->getManager();
-            
+
             $em->merge($user);
             $em->flush();
 
@@ -54,11 +54,6 @@ class ProfileController extends AbstractController
         }
 
         return $this->render('user/edit.html.twig', ['form' => $form->createView()]);
-    }
-
-    public function setUserData(FormTypeInterface $form, User &$user)
-    {
-
     }
 }
 

@@ -3,7 +3,10 @@
 namespace App\Form;
 
 use App\Entity\Post;
+use App\Entity\Topic;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,8 +17,13 @@ class PostType extends AbstractType
         $builder
             ->add('title')
             ->add('textField')
-            ->add('creationDate')
-            ->add('author')
+            ->add('topic', EntityType::class, [
+                'class' => Topic::class,
+                'choice_label' => function(Topic $topic){
+                    return $topic->getTitle();
+                }
+            ])
+            ->add('save', SubmitType::class, ['label' => 'Save']);
         ;
     }
 

@@ -65,7 +65,7 @@ class Post
     /**
      * @return string
      */
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return $this->title;
     }
@@ -79,7 +79,7 @@ class Post
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getTextField(): ?string
     {
