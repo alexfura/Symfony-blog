@@ -2,36 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9fd34dd-57da-40d6-8769-81b45ae329a3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/AuthController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/ImageType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20190710170628.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20190710182536.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20190711082619.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/fos_rest.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/fos_rest.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/RessetingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RessetingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/PasswordResetRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/PasswordResetRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/NewPasswordType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/NewPasswordType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/PassResetType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PassResetType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/PasswordResetRequestRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PasswordResetRequestRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/FileUploader.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/FileUploader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/message.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/message.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/resetting/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resetting/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/resetting/new_password.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resetting/new_password.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/index.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -74,8 +45,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/RessetingController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="112" column="48" selection-start-line="112" selection-start-column="48" selection-end-line="112" selection-end-column="48" />
+            <state relative-caret-position="257">
+              <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
               <folding>
                 <element signature="e#34#54#0#PHP" expanded="true" />
                 <element signature="e#4213#4247#0#PHP" expanded="true" />
@@ -353,7 +324,7 @@
       <path value="$PROJECT_DIR$/vendor/friendsofsymfony/rest-bundle" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="10" />
     <option name="y" value="20" />
     <option name="width" value="1346" />
@@ -504,12 +475,12 @@
       <workItem from="1562954798828" duration="595000" />
       <workItem from="1563026000139" duration="3678000" />
       <workItem from="1563089315804" duration="8792000" />
-      <workItem from="1563178355549" duration="5231000" />
+      <workItem from="1563178355549" duration="5815000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="513370000" />
+    <option name="totallyTimeSpent" value="513954000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -956,8 +927,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/RessetingController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="112" column="48" selection-start-line="112" selection-start-column="48" selection-end-line="112" selection-end-column="48" />
+        <state relative-caret-position="257">
+          <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
           <folding>
             <element signature="e#34#54#0#PHP" expanded="true" />
             <element signature="e#4213#4247#0#PHP" expanded="true" />

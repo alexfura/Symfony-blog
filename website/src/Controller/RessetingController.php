@@ -37,6 +37,7 @@ class RessetingController extends AbstractController
      */
     private function createResetRequest(User $user)
     {
+        
         if($user->getResetToken())
         {
             $this->entityManager->remove($user->getResetToken());
@@ -136,7 +137,5 @@ class RessetingController extends AbstractController
 
 
         return $this->render('resetting/new_password.html.twig', ['form' => $form->createView()]);
-
-        return new Response($token->getToken());
     }
 }
