@@ -3,11 +3,13 @@
 {% block title %}Forgot password{% endblock %}
 
 {% block content %}
-    <section>
-        {{ form_start(resetting_form) }}
-        {{ form_row(resetting_form.email) }}
-
-        <button class="btn" type="submit">Send</button>
-        {{ form_end(resetting_form) }}
-    </section>
+    <div class="row">
+        <section>
+            {{ form_start(resetting_form) }}
+            {{ form_errors(resetting_form) }}
+            {{ form_row(resetting_form.email) }}
+            <br>
+            {{ form_end(resetting_form) }}
+        </section>
+    </div>
 {% endblock %}

@@ -48,11 +48,13 @@
                 <tbody>
                 {% for post in user.posts %}
                     <tr>
+                        <a href="{{ path('postspost_by_id', {id: post.id}) }}"></a>
                         <td>{{ post.title }}</td>
                         <td>{{ post.author }}</td>
                         <td>{{ post.topic }}</td>
                     </tr>
                 {% endfor %}
+                </tbody>
             </table>
         </div>
 

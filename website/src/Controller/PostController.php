@@ -1,9 +1,9 @@
 <?php
 
+
 namespace App\Controller;
 
 use App\Form\PostType;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -32,6 +32,7 @@ class PostController extends AbstractController
 
     /**
      * @param Post $post
+     * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/{id}", name="post_by_id", requirements={"id"="\d+"})
      */
     public function getPostById(Post $post)

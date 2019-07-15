@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -13,6 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @Table(name="custom_user")
+ * @UniqueEntity(fields="id", message="Username already taken")
  * @UniqueEntity(fields="email", message="Email already taken")
  * @UniqueEntity(fields="username", message="Username already taken")
  */
@@ -21,14 +23,15 @@ class User implements UserInterface
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", unique=true)
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
-     * @Assert\Email()
-     * @Assert\NotBlank()
+     * @Assert\Email
+     * @Assert\NotBlank(message="email can't be blank")
+     * @Assert\NotNull(message="email can't be null")
      */
     private $email;
 
@@ -40,21 +43,23 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\NotBlank(groups={"new_password"}, message="password contain at least 6 characters")
+     * @Assert\NotNull(groups={"new_password"}, message="password can't be null")
+     * @Assert\Length(min=6)
      */
     private $password;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Post", mappedBy="author")
-     */
-    private $posts;
-
-    /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull(message="first name can't be null")
+     * @Assert\NotBlank(message="second name can't be null")
      */
     private $first_name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull(message="second name can't be null")
+     * @Assert\NotBlank(message="second name can't be blank")
      */
     private $second_name;
 
@@ -63,11 +68,10 @@ class User implements UserInterface
      */
     private $birth_date;
 
-
-
     /**
      * @ORM\Column(type="string", length=255, unique=true, nullable=false)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="username can't be blank")
+     * @Assert\NotNull(message="username can't be null")
      */
     private $username;
 
@@ -81,15 +85,53 @@ class User implements UserInterface
      */
     private $email_token;
 
+
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $bio;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Image", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Image", cascade={"persist"})
      */
     private $headshot;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $token;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $expires_at;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Post", mappedBy="author")
+     *
+     */
+    private $posts;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\PasswordResetRequest", mappedBy="user_id")
+     */
+    private $reset_token;
+
+    /**
+     * @return mixed
+     */
+    public function getResetToken()
+    {
+        return $this->reset_token;
+    }
+
+    /**
+     * @param mixed $reset_token
+     */
+    public function setResetToken($reset_token): void
+    {
+        $this->reset_token = $reset_token;
+    }
 
     /**
      * User constructor.
@@ -98,7 +140,7 @@ class User implements UserInterface
     {
         $this->posts = new ArrayCollection();
         // set email confirmation token
-        $this->setEmailToken(self::generateToken());
+        $this->setEmailToken($this->generateToken());
     }
 
     public function getId(): ?int
@@ -211,6 +253,7 @@ class User implements UserInterface
         return $this;
     }
 
+
     public function getFirstName(): ?string
     {
         return $this->first_name;
@@ -294,14 +337,10 @@ class User implements UserInterface
         return $this->email_token;
     }
 
-    public static function generateToken($bytes=32)
+    public function generateToken()
     {
-        if(!isset($bytes) || $bytes <= 12)
-        {
-            $bytes = 32;
-        }
-        // use md5 to prevent from error in DB and url
-        return md5(random_bytes($bytes));
+        $today = date("m.d.y");
+        return hash('sha256', $this->getEmail() . $today);
     }
 
     public function getBio(): ?string
@@ -327,4 +366,44 @@ class User implements UserInterface
 
         return $this;
     }
+
+    public function getToken(): ?string
+    {
+        return $this->token;
+    }
+
+    public function setToken(string $token): self
+    {
+        $this->token = $token;
+
+        return $this;
+    }
+
+    public function getExpiresAt(): ?\DateTimeInterface
+    {
+        return $this->expires_at;
+    }
+
+    public function setExpiresAt(?\DateTimeInterface $expires_at): self
+    {
+        $this->expires_at = $expires_at;
+
+        return $this;
+    }
+
+
+    public function isExpired()
+    {
+        return new DateTime("now") > $this->expires_at;
+    }
+
+    public function getExpiredDateTime($interval)
+    {
+        $date = new DateTime();
+        $date->modify($interval);
+
+        return $date;
+    }
 }
+
+

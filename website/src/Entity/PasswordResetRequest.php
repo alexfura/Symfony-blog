@@ -32,6 +32,11 @@ class PasswordResetRequest
      */
     private $expires;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\User", inversedBy="reset_token")
+     */
+    private $user_id;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -80,5 +85,17 @@ class PasswordResetRequest
     public function isExpired()
     {
         return new DateTime("now") > $this->expires;
+    }
+
+    public function getUserId(): ?User
+    {
+        return $this->user_id;
+    }
+
+    public function setUserId(?User $user_id): self
+    {
+        $this->user_id = $user_id;
+
+        return $this;
     }
 }

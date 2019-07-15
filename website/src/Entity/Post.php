@@ -52,7 +52,6 @@ class Post
     private $createdAt = 'CURRENT_DATE';
 
     /**
-     *
      * @ORM\ManyToOne(targetEntity="App\Entity\Topic", inversedBy="posts")
      */
     private $topic;

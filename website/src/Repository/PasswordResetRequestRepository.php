@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\PasswordResetRequest;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -20,14 +21,14 @@ class PasswordResetRequestRepository extends ServiceEntityRepository
         parent::__construct($registry, PasswordResetRequest::class);
     }
 
-    public function findByEmail($email)
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.email = :email')
-            ->setParameter('email', $email)
-            ->getQuery()
-            ->getOneOrNullResult();
-    }
+//    public function findByEmail($email)
+//    {
+//        return $this->createQueryBuilder('p')
+//            ->andWhere('p.email = :email')
+//            ->setParameter('email', $email)
+//            ->getQuery()
+//            ->getOneOrNullResult();
+//    }
 
     // /**
     //  * @return PasswordResetRequest[] Returns an array of PasswordResetRequest objects

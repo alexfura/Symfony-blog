@@ -1,5 +1,5 @@
 <?php
-//
+
 
 namespace App\Controller;
 
@@ -8,13 +8,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Entity\Topic;
 use App\Entity\Post;
 
-
+/**
+ * Class DefaultController
+ * @package App\Controller
+ */
 class DefaultController extends AbstractController
 {
     /**
-     *
-     * Matches "/"
-     *
+     * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/", name="home")
      */
     public function index()
@@ -30,6 +31,7 @@ class DefaultController extends AbstractController
     }
 
     /**
+     * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/about", name="about")
      */
     public function about()
@@ -41,6 +43,9 @@ class DefaultController extends AbstractController
         );
     }
 
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function showSideBar()
     {
         $topics = $this->getDoctrine()->getRepository(Topic::class)->findAll();

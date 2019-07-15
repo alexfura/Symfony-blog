@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\PasswordResetRequest;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,6 +15,7 @@ class PassResetType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class)
+            ->add('save', SubmitType::class, ['label' => 'Send'])
         ;
     }
 
