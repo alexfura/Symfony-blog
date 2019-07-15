@@ -15,6 +15,7 @@ use Swift_Mailer;
 use Swift_Message;
 use DateTime;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use App\Service\AuthService;
 
 class RessetingController extends AbstractController
 {
@@ -37,7 +38,7 @@ class RessetingController extends AbstractController
      */
     private function createResetRequest(User $user)
     {
-        
+
         if($user->getResetToken())
         {
             $this->entityManager->remove($user->getResetToken());
@@ -113,8 +114,6 @@ class RessetingController extends AbstractController
         {
             return new Response("invalid link");
         }
-        $form = $this->createForm(NewPasswordType::class);
-        $form->handleRequest($request);
 
         if($reset_request->isExpired())
         {
@@ -122,6 +121,9 @@ class RessetingController extends AbstractController
             $this->entityManager->flush();
             return new Response("This link is not valid");
         }
+
+        $form = $this->createForm(NewPasswordType::class);
+        $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $user = $this->entityManager->getRepository(User::class)->findOneBy(['id' => $reset_request->getUserId()->getId()]);
