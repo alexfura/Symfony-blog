@@ -38,4 +38,14 @@ class AdminController extends AbstractController
     {
 
     }
+
+    public function deleteUser()
+    {
+
+    }
+
+    public function editPost()
+    {
+
+    }
 }

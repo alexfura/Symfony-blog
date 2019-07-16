@@ -7,21 +7,28 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
+
+/**
+ * Class AuthService
+ * @package App\Service
+ */
 class AuthService
 {
     /**
      * @var EntityManagerInterface
      */
     private $em;
-
+    private $passwordEncoder;
     /**
      * AuthService constructor.
      * @param EntityManagerInterface $entityManager
      */
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(EntityManagerInterface $entityManager, UserPasswordEncoderInterface $passwordEncoder)
     {
         $this->em = $entityManager;
+        $this->passwordEncoder = $passwordEncoder;
     }
 
     /**
@@ -34,6 +41,25 @@ class AuthService
         $userRepo = $this->em->getRepository(User::class);
         $user = $userRepo->findOneBy(['token' => $token]);
 
+        return $user;
+    }
+
+    /**
+     * @param Request $request
+     * @return User
+     */
+    public function createUser(Request $request)
+    {
+        $user = new User();
+        $user->setUsername($request->get('username'));
+        $user->setEmail($request->get('email'));
+        $plainPassword = $request->get('password');
+        $user->setPassword($this->passwordEncoder->encodePassword($user, $plainPassword));
+        $user->setFirstName('first_name');
+        $user->setSecondName('second_name');
+        $user->setExpiresAt($user->getExpiredDateTime("+10 days"));
+        $user->setStatus(true);
+        $user->setToken($user->generateToken());
         return $user;
     }
 
@@ -55,7 +81,12 @@ class AuthService
         return null;
     }
 
-
+    /**
+     * @param Request $request
+     * @return User|object|null
+     *  if current request supports authorization token returns User
+     *  else null
+     */
     public function supports(Request $request)
     {
         $header_list = $request->headers;

@@ -13,6 +13,7 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+
 /**
  * Class AuthController
  * @package App\Controller
@@ -20,18 +21,18 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
  */
 class AuthController extends AbstractFOSRestController
 {
-    /**
-     * @var UserPasswordEncoderInterface
-     */
     private $passwordEncoder;
+    private $authService;
 
     /**
      * AuthController constructor.
      * @param UserPasswordEncoderInterface $passwordEncoder
+     * @param AuthService $authService
      */
-    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder, AuthService $authService)
     {
         $this->passwordEncoder = $passwordEncoder;
+        $this->authService = $authService;
     }
 
     /**
@@ -42,30 +43,19 @@ class AuthController extends AbstractFOSRestController
      */
     public function auth(Request $request, ValidatorInterface $validator)
     {
-        $user = new User();
-        $user->setUsername($request->get('username'));
-        $user->setEmail($request->get('email'));
-        $plainPassword = $request->get('password');
-        $user->setPassword($this->passwordEncoder->encodePassword($user, $plainPassword));
-        $user->setFirstName('first_name');
-        $user->setSecondName('second_name');
-        $user->setExpiresAt($user->getExpiredDateTime("+10 days"));
-        $user->setStatus(true);
-
-        $user->setToken($user->generateToken());
-
+        $user = $this->authService->createUser($request);
         $errors = $validator->validate($user);
 
         if($errors->count() > 0)
         {
             $errorsString = (string) $errors;
-            return new JsonResponse( 'errors:'. $errorsString, 400);
+            return new JsonResponse( 'errors:'. $errorsString, Response::HTTP_BAD_REQUEST);
         }
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($user);
         $em->flush();
-        return new JsonResponse("user token: {$user->getToken()}", 200);
+        return new JsonResponse("user token: {$user->getToken()}", Response::HTTP_OK);
 
     }
 
@@ -106,12 +96,12 @@ class AuthController extends AbstractFOSRestController
 
         if(!$user)
         {
-            return new JsonResponse("Can't find requested user", 400);
+            return new JsonResponse("Can't find requested user", Response::HTTP_BAD_REQUEST);
         }
 
         if(!$this->checkCredentials($credentials, $user))
         {
-            return new JsonResponse("Invalid password", 400);
+            return new JsonResponse("Invalid password", Response::HTTP_BAD_REQUEST);
         }
 
         if($user->isExpired())
@@ -124,7 +114,7 @@ class AuthController extends AbstractFOSRestController
         }
 
 
-        return new JsonResponse("user token: {$user->getToken()}", 200);
+        return new JsonResponse("user token: {$user->getToken()}", Response::HTTP_OK);
     }
 
     /**
@@ -133,10 +123,10 @@ class AuthController extends AbstractFOSRestController
      * @return JsonResponse
      * @Rest\Post("/resource")
      */
-    public function getSecuredData(Request $request, AuthService $authService)
+    public function getSecuredData(Request $request)
     {
         // handle request by AuthService
-        if(!$authService->supports($request))
+        if(!$this->authService->supports($request))
         {
             return new JsonResponse("invalid token", Response::HTTP_UNAUTHORIZED);
         }
