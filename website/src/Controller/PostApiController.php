@@ -2,17 +2,20 @@
 
 
 namespace App\Controller;
-
-use App\Controller\Interfaces\TokenControllerInterface;
-use App\Service\AuthService;
+use App\Entity\Image;
+use App\Entity\Post;
+use App\Entity\Topic;
+use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
-use http\Env\Request;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\Post;
+use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
+
 
 
 /**
@@ -21,16 +24,17 @@ use App\Entity\Post;
  * API class for post entity
  * @Route("/api/v2/posts")
  */
-
-class PostApiController extends AbstractFOSRestController implements TokenControllerInterface
+class PostApiController extends  AbstractFOSRestController
 {
-    private $em;
-    private $authService;
+    protected $em;
+    protected $serializer;
+    protected $validator;
 
-    public function __construct(EntityManagerInterface $em, AuthService $authService)
+    public function __construct(EntityManagerInterface $em, SerializerInterface $serializer, ValidatorInterface $validator)
     {
         $this->em = $em;
-        $this->authService = $authService;
+        $this->serializer = $serializer;
+        $this->validator = $validator;
     }
 
     /**
@@ -38,33 +42,26 @@ class PostApiController extends AbstractFOSRestController implements TokenContro
      */
     public function getPosts()
     {
-//        $postRepo = $this->em->getRepository(Post::class);
-//        $posts = $postRepo->findAll();
+        $posts = $this->em->getRepository(Post::class)->findAll();
+        $post_json = $this->serializer->serialize($posts, 'json', ['groups' => 'read']);
 
-        return new JsonResponse("post collection", Response::HTTP_OK);
+        return new JsonResponse($post_json, Response::HTTP_OK);
     }
 
     /**
+     * @param Post $post
+     * @return JsonResponse
      * @Rest\Get("/{id}")
      */
-    public function getPost()
+    public function getPost(Post $post)
     {
-
+        $post_json = $this->serializer->serialize($post, 'json', ['groups' => 'read']);
+        return new JsonResponse($post_json, Response::HTTP_OK);
     }
 
-    /**
-     * @Rest\Post("/create")
-     */
-    public function createPost()
+
+    public function createPost(Request $request)
     {
-
-    }
-
-    /**
-     * @Rest\Pust("/{id}/update")
-     */
-    public function updatePost()
-    {
-
+        
     }
 }

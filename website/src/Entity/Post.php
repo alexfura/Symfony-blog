@@ -4,6 +4,7 @@ namespace App\Entity;
 use App\Entity\Topic;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Post
@@ -20,6 +21,7 @@ class Post
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="SEQUENCE")
      * @ORM\SequenceGenerator(sequenceName="post_id_seq", allocationSize=1, initialValue=1)
+     * @Groups({"read"})
      */
     private $id;
 
@@ -34,6 +36,7 @@ class Post
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=122, nullable=false)
+     * @Groups({"read"})
      */
     private $title;
 
@@ -41,6 +44,7 @@ class Post
      * @var string|null
      *
      * @ORM\Column(name="text_field", type="text", nullable=true)
+     *  @Groups({"read"})
      */
     private $textField;
 
@@ -48,16 +52,20 @@ class Post
      * @var \DateTime|null
      *
      * @ORM\Column(name="created_at", type="date", nullable=true, options={"default"="CURRENT_DATE"})
+     *  @Groups({"read"})
+
      */
     private $createdAt = 'CURRENT_DATE';
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Topic", inversedBy="posts")
+     *  @Groups({"read"})
      */
     private $topic;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="posts")
+     * @Groups({"read"})
      */
     private $author;
 

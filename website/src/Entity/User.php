@@ -10,6 +10,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping\Table;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -24,6 +25,7 @@ class User implements UserInterface
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer", unique=true)
+     *  @Groups({"read"})
      */
     private $id;
 
@@ -53,6 +55,7 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      * @Assert\NotNull(message="first name can't be null")
      * @Assert\NotBlank(message="second name can't be null")
+     *
      */
     private $first_name;
 
@@ -72,7 +75,7 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, unique=true, nullable=false)
      * @Assert\NotBlank(message="username can't be blank")
      * @Assert\NotNull(message="username can't be null")
-     */
+     **/
     private $username;
 
     /**
@@ -88,6 +91,8 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     *
      */
     private $bio;
 
