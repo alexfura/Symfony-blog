@@ -131,6 +131,12 @@ class RessetingController extends AbstractController
                 $this->encoder->encodePassword($user, $form->get('password')->getData())
             );
             $this->entityManager->merge($user);
+            $this->entityManager->flush();
+
+            $reset_request->setUserId(null);
+            $user->setResetToken(null);
+            $this->entityManager->flush();
+
             $this->entityManager->remove($reset_request);
             $this->entityManager->flush();
 

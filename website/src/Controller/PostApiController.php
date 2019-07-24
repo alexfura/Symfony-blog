@@ -2,7 +2,7 @@
 
 
 namespace App\Controller;
-use App\Entity\Image;
+use App\Controller\Interfaces\TokenControllerInterface;
 use App\Entity\Post;
 use App\Entity\Topic;
 use App\Entity\User;
@@ -15,9 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
-
-
-
+use Symfony\Component\HttpKernel\Exception\HttpException;
 /**
  * Class PostApiController
  * @package App\Controller
@@ -43,25 +41,63 @@ class PostApiController extends  AbstractFOSRestController
     public function getPosts()
     {
         $posts = $this->em->getRepository(Post::class)->findAll();
-        $post_json = $this->serializer->serialize($posts, 'json', ['groups' => 'read']);
+        return new JsonResponse($posts, Response::HTTP_OK);
+    }
 
-        return new JsonResponse($post_json, Response::HTTP_OK);
+    /**
+     * @Rest\Post("/create")
+     */
+    public function createPost(Request $request)
+    {
+        $post = new Post();
+        $this->setEntityFromRequest($request, $post);
+        $errors = $this->validator->validate($post);
+        if(count($errors) > 0)
+        {
+            throw  new HttpException( Response::HTTP_UNPROCESSABLE_ENTITY, (string)$errors);
+        }
+        $this->em->persist($post);
+        $this->em->flush();
+
+        return new JsonResponse("created new post", Response::HTTP_CREATED);
     }
 
     /**
      * @param Post $post
      * @return JsonResponse
-     * @Rest\Get("/{id}")
+     * @Rest\Get("/{id}", requirements={"id"="\d+"})
      */
     public function getPost(Post $post)
     {
-        $post_json = $this->serializer->serialize($post, 'json', ['groups' => 'read']);
-        return new JsonResponse($post_json, Response::HTTP_OK);
+        return new JsonResponse($post, Response::HTTP_OK);
     }
 
-
-    public function createPost(Request $request)
+    /**
+     * @param Request $request
+     * @param Post $post
+     * @Rest\Put("/{id}/edit", requirements={"id"="\d+"})
+     */
+    public function editPost(Request $request, Post $post)
     {
-        
+        $this->setEntityFromRequest($request, $post);
+        $errors = $this->validator->validate($post);
+        if(count($errors) > 0)
+        {
+            throw  new HttpException( Response::HTTP_UNPROCESSABLE_ENTITY, (string)$errors);
+        }
+
+        $this->em->merge($post);
+        $this->em->flush();
+
+        return new JsonResponse("updated post", Response::HTTP_OK);
+    }
+
+    private function setEntityFromRequest(Request $request, Post $post)
+    {
+        $data = json_decode($request->getContent());
+        $post->setTitle($data->title);
+        $post->setTextField($data->textField);
+        $post->setTopic($this->em->getRepository(Topic::class)->findOneBy(['id' =>$data->topic]));
+        $post->setAuthor($this->em->getRepository(User::class)->findOneBy(['id' =>$data->author]));
     }
 }

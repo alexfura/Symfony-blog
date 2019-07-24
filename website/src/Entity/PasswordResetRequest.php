@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use DateTime;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PasswordResetRequestRepository")
@@ -19,6 +20,7 @@ class PasswordResetRequest
 
     /**
      * @ORM\Column(type="string", length=255, nullable=false)
+     * @Assert\NotBlank(groups={"update_password"}, message="email can't be null")
      */
     private $email;
 
@@ -33,9 +35,9 @@ class PasswordResetRequest
     private $expires;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\User", inversedBy="reset_token")
+     * @ORM\OneToOne(targetEntity="App\Entity\User", inversedBy="reset_token", cascade={"persist", "remove"})
      */
-    private $user_id;
+    private $userId;
 
     public function getId(): ?int
     {
@@ -89,12 +91,12 @@ class PasswordResetRequest
 
     public function getUserId(): ?User
     {
-        return $this->user_id;
+        return $this->userId;
     }
 
-    public function setUserId(?User $user_id): self
+    public function setUserId(?User $userId): self
     {
-        $this->user_id = $user_id;
+        $this->userId = $userId;
 
         return $this;
     }

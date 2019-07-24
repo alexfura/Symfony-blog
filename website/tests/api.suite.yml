@@ -1,0 +1,10 @@
+actor: ApiTester
+modules:
+    enabled:
+        - \Helper\Api
+        - Symfony:
+              app_path: 'src'
+        - REST:
+              url: /api/v2
+              depends: Symfony
+              part: Json

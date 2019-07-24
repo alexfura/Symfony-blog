@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Entity;
-use App\Entity\Topic;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Annotation\Groups;
+use JsonSerializable;
 
 /**
  * Post
@@ -12,7 +11,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @ORM\Table(name="post", uniqueConstraints={@ORM\UniqueConstraint(name="uq_post_id", columns={"id"}), @ORM\UniqueConstraint(name="post_title_key", columns={"title"})}, indexes={@ORM\Index(name="IDX_5A8A6C8D1F55203D", columns={"topic_id"})})
  * @ORM\Entity(repositoryClass="App\Repository\PostRepository")
  */
-class Post
+class Post implements JsonSerializable
 {
     /**
      * @var int
@@ -55,7 +54,7 @@ class Post
      *  @Groups({"read"})
 
      */
-    private $createdAt = 'CURRENT_DATE';
+    private $createdAt;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Topic", inversedBy="posts")
@@ -144,5 +143,16 @@ class Post
         $this->author = $author;
 
         return $this;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->getId(),
+            'title' => $this->title,
+            'textField' => $this->textField,
+            'topic' => $this->getTopic(),
+            'author' => $this->getAuthor()
+        ];
     }
 }

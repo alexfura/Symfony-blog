@@ -39,7 +39,7 @@ class TokenSubscriber implements EventSubscriberInterface
         {
             if(!$this->authService->supports($controllerEvent->getRequest()))
             {
-                throw  new HttpException(Response::HTTP_BAD_REQUEST, "invalid token");
+                throw  new HttpException(Response::HTTP_UNAUTHORIZED, "invalid token");
             }
         }
     }

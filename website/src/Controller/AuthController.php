@@ -17,7 +17,7 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 /**
  * Class AuthController
  * @package App\Controller
- * @Route("/api/v1")
+ * @Route("/api/v2")
  */
 class AuthController extends AbstractFOSRestController
 {
@@ -55,7 +55,10 @@ class AuthController extends AbstractFOSRestController
         $em = $this->getDoctrine()->getManager();
         $em->persist($user);
         $em->flush();
-        return new JsonResponse("user token: {$user->getToken()}", Response::HTTP_OK);
+
+        $json_token = json_encode(['token' => $user->getToken()]);
+
+        return new JsonResponse($json_token, Response::HTTP_OK);
 
     }
 
@@ -113,13 +116,13 @@ class AuthController extends AbstractFOSRestController
             $em->flush();
         }
 
+        $json_token = ['token' => $user->getToken()];
 
-        return new JsonResponse("user token: {$user->getToken()}", Response::HTTP_OK);
+        return new JsonResponse($json_token, Response::HTTP_OK);
     }
 
     /**
      * @param Request $request
-     * @param AuthService $authService
      * @return JsonResponse
      * @Rest\Post("/resource")
      */

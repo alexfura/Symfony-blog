@@ -23,6 +23,7 @@ class PassResetType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => PasswordResetRequest::class,
+            'validation_groups' => 'update_password',
         ]);
     }
 }

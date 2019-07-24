@@ -13,8 +13,12 @@ framework:
         cookie_secure: auto
         cookie_samesite: lax
 
+
     assets:
         enabled: true
+
+    property_info:
+      enabled: true
 
     esi: true
     #fragments: true
@@ -23,8 +27,6 @@ framework:
 
     serializer:
         enabled: true
-        circular_reference_handler: App\Service\CircularReferenceHandler
-
     templating:
         engines: ['twig', 'php']
 

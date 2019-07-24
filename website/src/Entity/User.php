@@ -11,6 +11,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping\Table;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Annotation\Groups;
+use JsonSerializable;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -19,13 +21,18 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @UniqueEntity(fields="email", message="Email already taken")
  * @UniqueEntity(fields="username", message="Username already taken")
  */
-class User implements UserInterface
+class User implements UserInterface, JsonSerializable
 {
+
+    public function jsonSerialize()
+    {
+    }
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer", unique=true)
-     *  @Groups({"read"})
+     *  @Groups({"get"})
      */
     private $id;
 
@@ -34,6 +41,7 @@ class User implements UserInterface
      * @Assert\Email
      * @Assert\NotBlank(message="email can't be blank")
      * @Assert\NotNull(message="email can't be null")
+     * @Groups({"get"})
      */
     private $email;
 
@@ -55,26 +63,29 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      * @Assert\NotNull(message="first name can't be null")
      * @Assert\NotBlank(message="second name can't be null")
-     *
+     * @Groups({"get"})
      */
-    private $first_name;
+    private $firstName;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotNull(message="second name can't be null")
      * @Assert\NotBlank(message="second name can't be blank")
+     * @Groups({"get"})
      */
-    private $second_name;
+    private $secondName;
 
     /**
      * @ORM\Column(type="date", nullable=true)
+     * @Groups({"get"})
      */
-    private $birth_date;
+    private $birthDate;
 
     /**
      * @ORM\Column(type="string", length=255, unique=true, nullable=false)
      * @Assert\NotBlank(message="username can't be blank")
      * @Assert\NotNull(message="username can't be null")
+     * @Groups({"get"})
      **/
     private $username;
 
@@ -86,12 +97,12 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $email_token;
+    private $emailToken;
 
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     *
+     * @Groups({"get"})
      *
      */
     private $bio;
@@ -109,7 +120,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private $expires_at;
+    private $expiresAt;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Post", mappedBy="author")
@@ -118,7 +129,7 @@ class User implements UserInterface
     private $posts;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\PasswordResetRequest", mappedBy="user_id")
+     * @ORM\OneToOne(targetEntity="App\Entity\PasswordResetRequest", mappedBy="userId")
      */
     private $reset_token;
 
@@ -261,36 +272,36 @@ class User implements UserInterface
 
     public function getFirstName(): ?string
     {
-        return $this->first_name;
+        return $this->firstName;
     }
 
     public function setFirstName(string $first_name): self
     {
-        $this->first_name = $first_name;
+        $this->firstName = $first_name;
 
         return $this;
     }
 
     public function getSecondName(): ?string
     {
-        return $this->second_name;
+        return $this->secondName;
     }
 
-    public function setSecondName(string $second_name): self
+    public function setSecondName(string $secondName): self
     {
-        $this->second_name = $second_name;
+        $this->secondName = $secondName;
 
         return $this;
     }
 
     public function getBirthDate(): ?\DateTimeInterface
     {
-        return $this->birth_date;
+        return $this->birthDate;
     }
 
     public function setBirthDate(\DateTimeInterface $birth_date): self
     {
-        $this->birth_date = $birth_date;
+        $this->birthDate = $birth_date;
 
         return $this;
     }
@@ -324,12 +335,12 @@ class User implements UserInterface
 
     public function getEmailToken(): ?string
     {
-        return $this->email_token;
+        return $this->emailToken;
     }
 
     public function setEmailToken($token)
     {
-        $this->email_token = $token;
+        $this->emailToken = $token;
     }
 
     /**
@@ -339,7 +350,7 @@ class User implements UserInterface
      */
     public function getRandomToken()
     {
-        return $this->email_token;
+        return $this->emailToken;
     }
 
     public function generateToken()
@@ -386,12 +397,12 @@ class User implements UserInterface
 
     public function getExpiresAt(): ?\DateTimeInterface
     {
-        return $this->expires_at;
+        return $this->expiresAt;
     }
 
     public function setExpiresAt(?\DateTimeInterface $expires_at): self
     {
-        $this->expires_at = $expires_at;
+        $this->expiresAt = $expires_at;
 
         return $this;
     }
@@ -399,7 +410,7 @@ class User implements UserInterface
 
     public function isExpired()
     {
-        return new DateTime("now") > $this->expires_at;
+        return new DateTime("now") > $this->expiresAt;
     }
 
     public function getExpiredDateTime($interval)

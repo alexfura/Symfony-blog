@@ -81,6 +81,11 @@ class AuthService
         return null;
     }
 
+    public function updateToken()
+    {
+
+    }
+
     /**
      * @param Request $request
      * @return User|object|null

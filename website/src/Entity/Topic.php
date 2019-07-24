@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
+use JsonSerializable;
 
 /**
  * Topic
@@ -13,8 +14,15 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @ORM\Table(name="topic", uniqueConstraints={@ORM\UniqueConstraint(name="topic_title_key", columns={"title"}), @ORM\UniqueConstraint(name="topic_slug_key", columns={"slug"})})
  * @ORM\Entity(repositoryClass="App\Repository\TopicRepository")
  */
-class Topic
+class Topic implements JsonSerializable
 {
+    public function jsonSerialize()
+    {
+        // TODO: Implement jsonSerialize() method.
+
+        return $this->getId();
+    }
+
     /**
      * @var int
      *

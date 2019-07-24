@@ -15,8 +15,8 @@ class UserType extends AbstractType
     {
         $builder
             ->setMethod('PUT')
-            ->add('first_name')
-            ->add('second_name')
+            ->add('firstName')
+            ->add('secondName')
             ->add('birth_date')
             ->add('save', SubmitType::class, ['label' => 'Save']);
 
