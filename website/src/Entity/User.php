@@ -16,7 +16,7 @@ use JsonSerializable;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
- * @Table(name="custom_user")
+ * @Table(name="sup_user")
  * @UniqueEntity(fields="id", message="Username already taken")
  * @UniqueEntity(fields="email", message="Email already taken")
  * @UniqueEntity(fields="username", message="Username already taken")
@@ -121,12 +121,6 @@ class User implements UserInterface, JsonSerializable
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $expiresAt;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Post", mappedBy="author")
-     *
-     */
-    private $posts;
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\PasswordResetRequest", mappedBy="userId")

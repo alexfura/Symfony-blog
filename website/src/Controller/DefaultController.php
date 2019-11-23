@@ -22,11 +22,11 @@ class DefaultController extends AbstractController
     {
         // get home page
         $message = "Random message";
-        $em = $this->getDoctrine()->getManager();
-        $posts = $em->getRepository(Post::class)->getLastPosts();
+//        $em = $this->getDoctrine()->getManager();
+//        $posts = $em->getRepository(Post::class)->getLastPosts();
 
         return $this->render(
-            'home.html.twig', ['message' => $message, 'posts' =>  $posts]
+            'home.html.twig', ['message' => $message]
         );
     }
 
@@ -43,13 +43,13 @@ class DefaultController extends AbstractController
         );
     }
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function showSideBar()
-    {
-        $topics = $this->getDoctrine()->getRepository(Topic::class)->findAll();
-
-        return $this->render('layouts/sidebar.html.twig', ['topics' => $topics]);
-    }
+//    /**
+//     * @return \Symfony\Component\HttpFoundation\Response
+//     */
+//    public function showSideBar()
+//    {
+//        $topics = $this->getDoctrine()->getRepository(Topic::class)->findAll();
+//
+//        return $this->render('layouts/sidebar.html.twig', ['topics' => $topics]);
+//    }
 }
