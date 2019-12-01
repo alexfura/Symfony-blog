@@ -27,12 +27,12 @@ class Supplies
      *
      * @ORM\Column(name="supply_quantity", type="integer", nullable=false)
      */
-    private $supplyQuantity = '0';
+    private $supplyQuantity = 0;
 
     /**
-     * @var \Products
+     * @var Products
      *
-     * @ORM\ManyToOne(targetEntity="Products")
+     * @ORM\ManyToOne(targetEntity="Products", inversedBy="productSupplies")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="supply_product", referencedColumnName="product_id")
      * })
@@ -40,14 +40,78 @@ class Supplies
     private $supplyProduct;
 
     /**
-     * @var \Contracts
+     * @var Contracts
      *
-     * @ORM\ManyToOne(targetEntity="Contracts")
+     * @ORM\ManyToOne(targetEntity="Contracts", inversedBy="contractSupplies")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="supply_contract", referencedColumnName="contract_id")
      * })
      */
     private $supplyContract;
+
+    /**
+     * @return int
+     */
+    public function getSupplyId(): int
+    {
+        return $this->supplyId;
+    }
+
+    /**
+     * @param int $supplyId
+     */
+    public function setSupplyId(int $supplyId): void
+    {
+        $this->supplyId = $supplyId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSupplyQuantity(): int
+    {
+        return $this->supplyQuantity;
+    }
+
+    /**
+     * @param int $supplyQuantity
+     */
+    public function setSupplyQuantity(int $supplyQuantity): void
+    {
+        $this->supplyQuantity = $supplyQuantity;
+    }
+
+    /**
+     * @return Products
+     */
+    public function getSupplyProduct(): Products
+    {
+        return $this->supplyProduct;
+    }
+
+    /**
+     * @param Products $supplyProduct
+     */
+    public function setSupplyProduct(Products $supplyProduct): void
+    {
+        $this->supplyProduct = $supplyProduct;
+    }
+
+    /**
+     * @return Contracts
+     */
+    public function getSupplyContract(): Contracts
+    {
+        return $this->supplyContract;
+    }
+
+    /**
+     * @param Contracts $supplyContract
+     */
+    public function setSupplyContract(Contracts $supplyContract): void
+    {
+        $this->supplyContract = $supplyContract;
+    }
 
 
 }

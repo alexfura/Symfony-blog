@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -44,9 +45,9 @@ class Products
     private $productExpDate;
 
     /**
-     * @var \Categories
+     * @var Categories
      *
-     * @ORM\ManyToOne(targetEntity="Categories")
+     * @ORM\ManyToOne(targetEntity="Categories", inversedBy="products")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="product_category", referencedColumnName="category_id")
      * })
@@ -54,14 +55,137 @@ class Products
     private $productCategory;
 
     /**
-     * @var \Brands
+     * @var Brands
      *
-     * @ORM\ManyToOne(targetEntity="Brands")
+     * @ORM\ManyToOne(targetEntity="Brands", inversedBy="products")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="product_brand", referencedColumnName="brand_id")
      * })
      */
     private $productBrand;
 
+
+    /**
+     *
+     * @ORM\OneToMany(targetEntity="Supplies", mappedBy="supplyProduct")
+     */
+    private $productSupplies;
+
+    public function __construct()
+    {
+        $this->productSupplies = new ArrayCollection();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProductSupplies()
+    {
+        return $this->productSupplies;
+    }
+
+    /**
+     * @param mixed $productSupplies
+     */
+    public function setProductSupplies($productSupplies): void
+    {
+        $this->productSupplies = $productSupplies;
+    }
+
+    /**
+     * @return int
+     */
+    public function getProductId(): int
+    {
+        return $this->productId;
+    }
+
+    /**
+     * @param int $productId
+     */
+    public function setProductId(int $productId): void
+    {
+        $this->productId = $productId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getProductName(): string
+    {
+        return $this->productName;
+    }
+
+    /**
+     * @param string $productName
+     */
+    public function setProductName(string $productName): void
+    {
+        $this->productName = $productName;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getProductManDate(): \DateTime
+    {
+        return $this->productManDate;
+    }
+
+    /**
+     * @param \DateTime $productManDate
+     */
+    public function setProductManDate(\DateTime $productManDate): void
+    {
+        $this->productManDate = $productManDate;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getProductExpDate(): ?\DateTime
+    {
+        return $this->productExpDate;
+    }
+
+    /**
+     * @param \DateTime|null $productExpDate
+     */
+    public function setProductExpDate(?\DateTime $productExpDate): void
+    {
+        $this->productExpDate = $productExpDate;
+    }
+
+    /**
+     *
+     */
+    public function getProductCategory()
+    {
+        return $this->productCategory;
+    }
+
+    /**
+     * @param Categories $productCategory
+     */
+    public function setProductCategory(Categories $productCategory): void
+    {
+        $this->productCategory = $productCategory;
+    }
+
+    /**
+     * @return Brands
+     */
+    public function getProductBrand()
+    {
+        return $this->productBrand;
+    }
+
+    /**
+     * @param Brands $productBrand
+     */
+    public function setProductBrand(Brands $productBrand): void
+    {
+        $this->productBrand = $productBrand;
+    }
 
 }

@@ -92,7 +92,7 @@ var browser=function(){"use strict";var e={name:null,version:null,os:null,osVers
 					.appendTo($head);
 
 		// Toggle.
-			$('<a href="#sidebar" class="toggle">Toggle</a>')
+			$('<a href="#sidebar" class="toggle"></a>')
 				.appendTo($sidebar)
 				.on('click', function(event) {
 

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contracts{% endblock %}
+
+{% block content %}
+    <h1>Contracts</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>ContractId</th>
+                <td>{{ contract.contractId }}</td>
+            </tr>
+            <tr>
+                <th>ContractPrice</th>
+                <td>{{ contract.contractPrice }}</td>
+            </tr>
+            <tr>
+                <th>ContractSale</th>
+                <td>{{ contract.contractSale }}</td>
+            </tr>
+            <tr>
+                <th>ContractSignatureDate</th>
+                <td>{{ contract.contractSignatureDate ? contract.contractSignatureDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>ContractSupplyDate</th>
+                <td>{{ contract.contractSupplyDate ? contract.contractSupplyDate|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('contracts_index') }}">back to list</a>
+
+    <a href="{{ path('contracts_edit', {'contractId': contract.contractId}) }}">edit</a>
+
+    {{ include('contracts/_delete_form.html.twig') }}
+{% endblock %}

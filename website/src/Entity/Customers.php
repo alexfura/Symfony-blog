@@ -44,14 +44,94 @@ class Customers
     private $customerPhone;
 
     /**
-     * @var \Contracts
+     * @var Contracts
      *
-     * @ORM\ManyToOne(targetEntity="Contracts")
+     * @ORM\ManyToOne(targetEntity="Contracts", inversedBy="contractCustomers")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="customer_contract", referencedColumnName="contract_id")
      * })
      */
     private $customerContract;
+
+    /**
+     * @return int
+     */
+    public function getCustomerId(): int
+    {
+        return $this->customerId;
+    }
+
+    /**
+     * @param int $customerId
+     */
+    public function setCustomerId(int $customerId): void
+    {
+        $this->customerId = $customerId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCustomerFirstName(): string
+    {
+        return $this->customerFirstName;
+    }
+
+    /**
+     * @param string $customerFirstName
+     */
+    public function setCustomerFirstName(string $customerFirstName): void
+    {
+        $this->customerFirstName = $customerFirstName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCustomerSecondName(): string
+    {
+        return $this->customerSecondName;
+    }
+
+    /**
+     * @param string $customerSecondName
+     */
+    public function setCustomerSecondName(string $customerSecondName): void
+    {
+        $this->customerSecondName = $customerSecondName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCustomerPhone(): string
+    {
+        return $this->customerPhone;
+    }
+
+    /**
+     * @param string $customerPhone
+     */
+    public function setCustomerPhone(string $customerPhone): void
+    {
+        $this->customerPhone = $customerPhone;
+    }
+
+    /**
+     * @return Contracts
+     */
+    public function getCustomerContract(): Contracts
+    {
+        return $this->customerContract;
+    }
+
+    /**
+     * @param Contracts $customerContract
+     */
+    public function setCustomerContract(Contracts $customerContract): void
+    {
+        $this->customerContract = $customerContract;
+    }
 
 
 }

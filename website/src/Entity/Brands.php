@@ -2,7 +2,9 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\OneToMany;
 
 /**
  * Brands
@@ -30,4 +32,63 @@ class Brands
     private $brandName;
 
 
+    /**
+     * @var
+     * @ORM\OneToMany(targetEntity="Products", mappedBy="ProductBrand")
+     */
+    private $products;
+
+
+    public function __construct()
+    {
+        $this->products = new ArrayCollection();
+    }
+
+    /**
+     * @return int
+     */
+    public function getBrandId(): int
+    {
+        return $this->brandId;
+    }
+
+    /**
+     * @param int $brandId
+     */
+    public function setBrandId(int $brandId): void
+    {
+        $this->brandId = $brandId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBrandName(): ?string
+    {
+        return $this->brandName;
+    }
+
+    /**
+     * @param string $brandName
+     */
+    public function setBrandName(string $brandName): void
+    {
+        $this->brandName = $brandName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProducts()
+    {
+        return $this->products;
+    }
+
+    /**
+     * @param mixed $products
+     */
+    public function setProducts($products): void
+    {
+        $this->products = $products;
+    }
 }
