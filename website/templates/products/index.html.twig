@@ -12,6 +12,8 @@
                 <th>ProductName</th>
                 <th>ProductManDate</th>
                 <th>ProductExpDate</th>
+                <th>ProductBrand</th>
+                <th>ProductCategory</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -22,6 +24,8 @@
                 <td>{{ product.productName }}</td>
                 <td>{{ product.productManDate ? product.productManDate|date('Y-m-d') : '' }}</td>
                 <td>{{ product.productExpDate ? product.productExpDate|date('Y-m-d') : '' }}</td>
+                <td>{{ product.productBrand.brandName }}</td>
+                <td>{{ product.productCategory.categoryName }}</td>
                 <td>
                     <a href="{{ path('products_show', {'productId': product.productId}) }}">show</a>
                     <a href="{{ path('products_edit', {'productId': product.productId}) }}">edit</a>

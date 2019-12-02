@@ -7,6 +7,7 @@ use App\Entity\Categories;
 use App\Entity\Products;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,8 +17,8 @@ class ProductsType extends AbstractType
     {
         $builder
             ->add('productName')
-            ->add('productManDate')
-            ->add('productExpDate')
+            ->add('productManDate', DateTimeType::class)
+            ->add('productExpDate', DateTimeType::class)
             ->add('productCategory', EntityType::class, [
                 'class' => Categories::class,
                 'choice_label' => 'categoryName'

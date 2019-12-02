@@ -26,16 +26,14 @@ class Products
     /**
      * @var string
      *
-     * @ORM\Column(name="product_name", type="string", length=255, nullable=false)
+     * @ORM\Column(name="product_name", type="string", length=255, nullable=true)
      */
     private $productName;
 
     /**
-     * @var \DateTime
-     *
      * @ORM\Column(name="product_man_date", type="date", nullable=false, options={"default"="CURRENT_DATE"})
      */
-    private $productManDate = 'CURRENT_DATE';
+    private $productManDate;
 
     /**
      * @var \DateTime|null
@@ -109,9 +107,9 @@ class Products
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getProductName(): string
+    public function getProductName(): ?string
     {
         return $this->productName;
     }
@@ -125,25 +123,22 @@ class Products
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTimeInterface|null
      */
-    public function getProductManDate(): \DateTime
+    public function getProductManDate(): ?\DateTimeInterface
     {
         return $this->productManDate;
     }
 
-    /**
-     * @param \DateTime $productManDate
-     */
-    public function setProductManDate(\DateTime $productManDate): void
+    public function setProductManDate($productManDate): void
     {
         $this->productManDate = $productManDate;
     }
 
     /**
-     * @return \DateTime|null
+     * @return \DateTimeInterface|null
      */
-    public function getProductExpDate(): ?\DateTime
+    public function getProductExpDate(): ?\DateTimeInterface
     {
         return $this->productExpDate;
     }
