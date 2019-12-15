@@ -48,7 +48,7 @@ class Customers
      *
      * @ORM\ManyToOne(targetEntity="Contracts", inversedBy="contractCustomers")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="customer_contract", referencedColumnName="contract_id")
+     *   @ORM\JoinColumn(name="customer_contract", referencedColumnName="contract_id", onDelete="SET NULL")
      * })
      */
     private $customerContract;
@@ -61,34 +61,25 @@ class Customers
         return $this->customerId;
     }
 
-    /**
-     * @param int $customerId
-     */
+
     public function setCustomerId(int $customerId): void
     {
         $this->customerId = $customerId;
     }
 
-    /**
-     * @return string
-     */
-    public function getCustomerFirstName(): string
+    public function getCustomerFirstName(): ?string
     {
         return $this->customerFirstName;
     }
 
-    /**
-     * @param string $customerFirstName
-     */
+
     public function setCustomerFirstName(string $customerFirstName): void
     {
         $this->customerFirstName = $customerFirstName;
     }
 
-    /**
-     * @return string
-     */
-    public function getCustomerSecondName(): string
+
+    public function getCustomerSecondName(): ?string
     {
         return $this->customerSecondName;
     }
@@ -101,33 +92,25 @@ class Customers
         $this->customerSecondName = $customerSecondName;
     }
 
-    /**
-     * @return string
-     */
-    public function getCustomerPhone(): string
+
+    public function getCustomerPhone(): ?string
     {
         return $this->customerPhone;
     }
 
-    /**
-     * @param string $customerPhone
-     */
+
     public function setCustomerPhone(string $customerPhone): void
     {
         $this->customerPhone = $customerPhone;
     }
 
-    /**
-     * @return Contracts
-     */
-    public function getCustomerContract(): Contracts
+
+    public function getCustomerContract(): ?Contracts
     {
         return $this->customerContract;
     }
 
-    /**
-     * @param Contracts $customerContract
-     */
+
     public function setCustomerContract(Contracts $customerContract): void
     {
         $this->customerContract = $customerContract;

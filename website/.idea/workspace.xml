@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9fd34dd-57da-40d6-8769-81b45ae329a3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/website.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/website.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/BrandsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BrandsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Brands.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Brands.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Categories.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Contracts.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Contracts.php" afterDir="false" />
@@ -12,8 +11,13 @@
       <change beforePath="$PROJECT_DIR$/src/Entity/Products.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Products.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Suppliers.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Suppliers.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Supplies.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Supplies.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ContractsType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ContractsType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/CustomersType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/CustomersType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/SuppliesType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SuppliesType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/products/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/products/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/products/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/products/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/products/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/products/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/products/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/products/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -367,6 +371,8 @@
       <workItem from="1575141495656" duration="725000" />
       <workItem from="1575142254692" duration="5991000" />
       <workItem from="1575185930177" duration="19115000" />
+      <workItem from="1575356874428" duration="203000" />
+      <workItem from="1576431976689" duration="878000" />
     </task>
     <servers />
   </component>
@@ -395,18 +401,22 @@
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state x="747" y="239" width="425" height="565" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1044@0.0.1920.1044" timestamp="1575201955120" />
-    <state x="693" y="280" width="532" height="487" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1575205141283">
+    <state x="693" y="280" width="532" height="487" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1575315782574">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="693" y="280" width="532" height="487" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1575205141283" />
+    <state x="693" y="280" width="532" height="487" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1575315782574" />
+    <state x="558" y="114" key="CommitChangelistDialog2" timestamp="1576431996294">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state x="558" y="114" key="CommitChangelistDialog2/0.0.1920.1044@0.0.1920.1044" timestamp="1576431996294" />
     <state x="100" y="100" width="1720" height="844" key="DiffContextDialog" timestamp="1575192392218">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state x="100" y="100" width="1720" height="844" key="DiffContextDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1575192392218" />
-    <state x="744" y="278" key="FileChooserDialogImpl" timestamp="1575148163079">
+    <state x="744" y="278" width="432" height="487" key="FileChooserDialogImpl" timestamp="1575357075111">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="744" y="278" key="FileChooserDialogImpl/0.0.1920.1044@0.0.1920.1044" timestamp="1575148163079" />
+    <state x="744" y="278" width="432" height="487" key="FileChooserDialogImpl/0.0.1920.1044@0.0.1920.1044" timestamp="1575357075111" />
     <state x="643" y="256" width="650" height="528" key="find.popup" timestamp="1575192368571">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>

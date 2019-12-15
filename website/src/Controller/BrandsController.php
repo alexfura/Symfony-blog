@@ -72,9 +72,7 @@ class BrandsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('brands_index', [
-                'brandId' => $brand->getBrandId(),
-            ]);
+            return $this->redirectToRoute('brands_index');
         }
 
         return $this->render('brands/edit.html.twig', [

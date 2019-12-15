@@ -34,7 +34,7 @@ class Brands
 
     /**
      * @var
-     * @ORM\OneToMany(targetEntity="Products", mappedBy="ProductBrand")
+     * @ORM\OneToMany(targetEntity="Products", mappedBy="productBrand", cascade={"persist"})
      */
     private $products;
 

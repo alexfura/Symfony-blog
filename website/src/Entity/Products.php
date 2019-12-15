@@ -47,7 +47,7 @@ class Products
      *
      * @ORM\ManyToOne(targetEntity="Categories", inversedBy="products")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="product_category", referencedColumnName="category_id")
+     *   @ORM\JoinColumn(name="product_category", referencedColumnName="category_id", onDelete="SET NULL")
      * })
      */
     private $productCategory;
@@ -57,7 +57,7 @@ class Products
      *
      * @ORM\ManyToOne(targetEntity="Brands", inversedBy="products")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="product_brand", referencedColumnName="brand_id")
+     *   @ORM\JoinColumn(name="product_brand", referencedColumnName="brand_id", onDelete="SET NULL")
      * })
      */
     private $productBrand;

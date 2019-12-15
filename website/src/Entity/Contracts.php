@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use DateTime;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -38,16 +39,12 @@ class Contracts
     private $contractSale;
 
     /**
-     * @var DateTime
-     *
-     * @ORM\Column(name="contract_signature_date", type="date", nullable=false, options={"default"="CURRENT_DATE"})
+     * @ORM\Column(name="contract_signature_date", type="date", nullable=true, options={"default"="CURRENT_DATE"})
      */
-    private $contractSignatureDate = 'CURRENT_DATE';
+    private $contractSignatureDate;
 
     /**
-     * @var DateTime
-     *
-     * @ORM\Column(name="contract_supply_date", type="date", nullable=false)
+     * @ORM\Column(name="contract_supply_date", type="date", nullable=true)
      */
     private $contractSupplyDate;
 
@@ -102,9 +99,9 @@ class Contracts
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getContractPrice(): int
+    public function getContractPrice(): ?int
     {
         return $this->contractPrice;
     }
@@ -133,33 +130,23 @@ class Contracts
         $this->contractSale = $contractSale;
     }
 
-    /**
-     * @return DateTime
-     */
-    public function getContractSignatureDate(): DateTime
+
+    public function getContractSignatureDate(): ?\DateTimeInterface
     {
         return $this->contractSignatureDate;
     }
 
-    /**
-     * @param DateTime $contractSignatureDate
-     */
+
     public function setContractSignatureDate(DateTime $contractSignatureDate): void
     {
         $this->contractSignatureDate = $contractSignatureDate;
     }
 
-    /**
-     * @return DateTime
-     */
-    public function getContractSupplyDate(): DateTime
+    public function getContractSupplyDate(): ?\DateTimeInterface
     {
         return $this->contractSupplyDate;
     }
 
-    /**
-     * @param DateTime $contractSupplyDate
-     */
     public function setContractSupplyDate(DateTime $contractSupplyDate): void
     {
         $this->contractSupplyDate = $contractSupplyDate;
@@ -195,6 +182,13 @@ class Contracts
     public function setContractSuppliers($contractSuppliers): void
     {
         $this->contractSuppliers = $contractSuppliers;
+    }
+
+    public function __construct()
+    {
+        $this->contractCustomers = new ArrayCollection();
+        $this->contractSuppliers = new ArrayCollection();
+        $this->contractSupplies = new ArrayCollection();
     }
 
 

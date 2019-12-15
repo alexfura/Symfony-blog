@@ -44,7 +44,7 @@ class Supplies
      *
      * @ORM\ManyToOne(targetEntity="Contracts", inversedBy="contractSupplies")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="supply_contract", referencedColumnName="contract_id")
+     *   @ORM\JoinColumn(name="supply_contract", referencedColumnName="contract_id", onDelete="SET NULL")
      * })
      */
     private $supplyContract;
@@ -57,18 +57,12 @@ class Supplies
         return $this->supplyId;
     }
 
-    /**
-     * @param int $supplyId
-     */
     public function setSupplyId(int $supplyId): void
     {
         $this->supplyId = $supplyId;
     }
 
-    /**
-     * @return int
-     */
-    public function getSupplyQuantity(): int
+    public function getSupplyQuantity()
     {
         return $this->supplyQuantity;
     }
@@ -82,9 +76,9 @@ class Supplies
     }
 
     /**
-     * @return Products
+     * @return Products|null
      */
-    public function getSupplyProduct(): Products
+    public function getSupplyProduct(): ?Products
     {
         return $this->supplyProduct;
     }
@@ -98,9 +92,9 @@ class Supplies
     }
 
     /**
-     * @return Contracts
+     * @return Contracts|null
      */
-    public function getSupplyContract(): Contracts
+    public function getSupplyContract(): ?Contracts
     {
         return $this->supplyContract;
     }

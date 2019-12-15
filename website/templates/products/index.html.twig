@@ -24,8 +24,16 @@
                 <td>{{ product.productName }}</td>
                 <td>{{ product.productManDate ? product.productManDate|date('Y-m-d') : '' }}</td>
                 <td>{{ product.productExpDate ? product.productExpDate|date('Y-m-d') : '' }}</td>
-                <td>{{ product.productBrand.brandName }}</td>
-                <td>{{ product.productCategory.categoryName }}</td>
+                {%  if product.productBrand is not null %}
+                    <td>{{ product.productBrand.brandName }}</td>
+                {% else %}
+                    <td>-</td>
+                {% endif %}
+                {%  if product.productCategory is not null %}
+                    <td>{{ product.productCategory.categoryName }}</td>
+                {% else %}
+                    <td>-</td>
+                {% endif %}
                 <td>
                     <a href="{{ path('products_show', {'productId': product.productId}) }}">show</a>
                     <a href="{{ path('products_edit', {'productId': product.productId}) }}">edit</a>
@@ -36,6 +44,7 @@
                 <td colspan="5">no records found</td>
             </tr>
         {% endfor %}
+        <a href="{{ path('products_new') }}">Add new product</a>
         </tbody>
     </table>
 {% endblock content %}

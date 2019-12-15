@@ -4,10 +4,13 @@
 
 {% block content %}
     <h1>Edit Products</h1>
+    <div class="inner">
+        <div class="gtr-uniform">
+            {{ include('products/_form.html.twig', {'button_label': 'Update'}) }}
 
-    {{ include('products/_form.html.twig', {'button_label': 'Update'}) }}
+            <a href="{{ path('products_index') }}">back to list</a>
 
-    <a href="{{ path('products_index') }}">back to list</a>
-
-    {{ include('products/_delete_form.html.twig') }}
+            {{ include('products/_delete_form.html.twig') }}
+        </div>
+    </div>
 {% endblock content %}

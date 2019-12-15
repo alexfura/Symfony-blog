@@ -3,10 +3,11 @@
 {% block title %}Products{% endblock %}
 
 {% block content %}
-    <h1>Products</h1>
+    <div class="inner">
+        <h1>Products</h1>
 
-    <table class="table">
-        <tbody>
+        <table class="table">
+            <tbody>
             <tr>
                 <th>ProductId</th>
                 <td>{{ product.productId }}</td>
@@ -25,18 +26,29 @@
             </tr>
             <tr>
                 <th>ProductBrand</th>
-                <td>{{ product.productBrand.brandName }}</td>
+                {%  if product.productBrand is not null %}
+                    <td>{{ product.productBrand.brandName }}</td>
+
+                {% else %}
+                    <td>-</td>
+                {% endif %}
             </tr>
             <tr>
-                <th>ProductCategory</th>
-                <td>{{ product.productCategory.categoryName }}</td>
+                <th>ProductBrand</th>
+                {%  if product.productCategory is not null %}
+                    <td>{{ product.productCategory.categoryName }}</td>
+                {% else %}
+                    <td>-</td>
+                {% endif %}
             </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 
-    <a href="{{ path('products_index') }}">back to list</a>
+        <a href="{{ path('products_index') }}">back to list</a>
 
-    <a href="{{ path('products_edit', {'productId': product.productId}) }}">edit</a>
+        <a href="{{ path('products_edit', {'productId': product.productId}) }}">edit</a>
 
-    {{ include('products/_delete_form.html.twig') }}
+        {{ include('products/_delete_form.html.twig') }}
+    </div>
+
 {% endblock  content %}

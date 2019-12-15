@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Contracts;
 use App\Entity\Products;
 use App\Entity\Supplies;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -19,8 +20,10 @@ class SuppliesType extends AbstractType
                 'class' => Products::class,
                 'choice_label' => 'productName'
             ])
-//            ->add('supplyContract')
-        ;
+            ->add('supplyContract', EntityType::class, [
+                'class' => Contracts::class,
+                'choice_label' => 'contract_id'
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

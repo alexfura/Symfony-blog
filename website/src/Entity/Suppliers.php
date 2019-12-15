@@ -55,7 +55,7 @@ class Suppliers
      *
      * @ORM\ManyToOne(targetEntity="Contracts", inversedBy="contractSuppliers")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="supplier_contract", referencedColumnName="contract_id")
+     *   @ORM\JoinColumn(name="supplier_contract", referencedColumnName="contract_id", onDelete="SET NULL")
      * })
      */
     private $supplierContract;

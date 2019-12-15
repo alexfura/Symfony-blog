@@ -55,9 +55,9 @@ class Categories
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getCategoryName(): string
+    public function getCategoryName(): ?string
     {
         return $this->categoryName;
     }
