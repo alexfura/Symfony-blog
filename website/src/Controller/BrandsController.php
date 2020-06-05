@@ -30,6 +30,8 @@ class BrandsController extends AbstractController
 
     /**
      * @Route("/new", name="brands_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -53,6 +55,8 @@ class BrandsController extends AbstractController
 
     /**
      * @Route("/{brandId}", name="brands_show", methods={"GET"})
+     * @param Brands $brand
+     * @return Response
      */
     public function show(Brands $brand): Response
     {
@@ -63,6 +67,9 @@ class BrandsController extends AbstractController
 
     /**
      * @Route("/{brandId}/edit", name="brands_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Brands $brand
+     * @return Response
      */
     public function edit(Request $request, Brands $brand): Response
     {
@@ -83,6 +90,9 @@ class BrandsController extends AbstractController
 
     /**
      * @Route("/{brandId}", name="brands_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Brands $brand
+     * @return Response
      */
     public function delete(Request $request, Brands $brand): Response
     {

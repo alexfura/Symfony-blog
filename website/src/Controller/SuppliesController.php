@@ -30,6 +30,8 @@ class SuppliesController extends AbstractController
 
     /**
      * @Route("/new", name="supplies_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -53,6 +55,8 @@ class SuppliesController extends AbstractController
 
     /**
      * @Route("/{supplyId}", name="supplies_show", methods={"GET"})
+     * @param Supplies $supply
+     * @return Response
      */
     public function show(Supplies $supply): Response
     {
@@ -63,6 +67,9 @@ class SuppliesController extends AbstractController
 
     /**
      * @Route("/{supplyId}/edit", name="supplies_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Supplies $supply
+     * @return Response
      */
     public function edit(Request $request, Supplies $supply): Response
     {
@@ -85,6 +92,9 @@ class SuppliesController extends AbstractController
 
     /**
      * @Route("/{supplyId}", name="supplies_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Supplies $supply
+     * @return Response
      */
     public function delete(Request $request, Supplies $supply): Response
     {

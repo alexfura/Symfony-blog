@@ -17,8 +17,16 @@ class ProductsType extends AbstractType
     {
         $builder
             ->add('productName')
-            ->add('productManDate', DateTimeType::class)
-            ->add('productExpDate', DateTimeType::class)
+            ->add('productManDate', DateTimeType::class, [
+                'widget' => 'single_text',
+                'format' => 'yyyy-MM-dd',
+                'help' => 'Date format: yyyy-MM-dd'
+            ])
+            ->add('productExpDate', DateTimeType::class, [
+                'widget' => 'single_text',
+                'format' => 'yyyy-MM-dd',
+                'help' => 'Date format: yyyy-MM-dd'
+            ])
             ->add('productCategory', EntityType::class, [
                 'class' => Categories::class,
                 'choice_label' => 'categoryName'

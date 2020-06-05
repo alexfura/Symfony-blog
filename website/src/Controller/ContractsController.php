@@ -30,6 +30,8 @@ class ContractsController extends AbstractController
 
     /**
      * @Route("/new", name="contracts_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -53,6 +55,8 @@ class ContractsController extends AbstractController
 
     /**
      * @Route("/{contractId}", name="contracts_show", methods={"GET"})
+     * @param Contracts $contract
+     * @return Response
      */
     public function show(Contracts $contract): Response
     {
@@ -63,6 +67,9 @@ class ContractsController extends AbstractController
 
     /**
      * @Route("/{contractId}/edit", name="contracts_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Contracts $contract
+     * @return Response
      */
     public function edit(Request $request, Contracts $contract): Response
     {
@@ -85,6 +92,9 @@ class ContractsController extends AbstractController
 
     /**
      * @Route("/{contractId}", name="contracts_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Contracts $contract
+     * @return Response
      */
     public function delete(Request $request, Contracts $contract): Response
     {

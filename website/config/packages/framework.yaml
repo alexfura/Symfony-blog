@@ -27,8 +27,7 @@ framework:
 
     serializer:
         enabled: true
-    templating:
-        engines: ['twig', 'php']
+
 
 
 

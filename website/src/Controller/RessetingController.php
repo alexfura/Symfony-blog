@@ -104,6 +104,8 @@ class RessetingController extends AbstractController
 
     /**
      * @Route("resseting/{token}", name="confirm_resetting")
+     * @param $token
+     * @param Request $request
      * @return Response
      */
     public function confirmAction($token, Request $request)

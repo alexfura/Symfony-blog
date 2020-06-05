@@ -34,7 +34,7 @@ class Categories
 
     /**
      * @var
-     * @ORM\OneToMany(targetEntity="Products", mappedBy="products")
+     * @ORM\OneToMany(targetEntity="Products", mappedBy="productCategory")
      */
     private $products;
 

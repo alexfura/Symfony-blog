@@ -30,6 +30,8 @@ class CustomersController extends AbstractController
 
     /**
      * @Route("/new", name="customers_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -53,6 +55,8 @@ class CustomersController extends AbstractController
 
     /**
      * @Route("/{customerId}", name="customers_show", methods={"GET"})
+     * @param Customers $customer
+     * @return Response
      */
     public function show(Customers $customer): Response
     {
@@ -63,6 +67,9 @@ class CustomersController extends AbstractController
 
     /**
      * @Route("/{customerId}/edit", name="customers_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Customers $customer
+     * @return Response
      */
     public function edit(Request $request, Customers $customer): Response
     {
@@ -85,6 +92,9 @@ class CustomersController extends AbstractController
 
     /**
      * @Route("/{customerId}", name="customers_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Customers $customer
+     * @return Response
      */
     public function delete(Request $request, Customers $customer): Response
     {

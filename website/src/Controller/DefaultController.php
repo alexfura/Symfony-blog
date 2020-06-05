@@ -23,8 +23,6 @@ class DefaultController extends AbstractController
         // get home page
         $message = "Random message";
 //        $em = $this->getDoctrine()->getManager();
-//        $posts = $em->getRepository(Post::class)->getLastPosts();
-
         return $this->render(
             'home.html.twig', ['message' => $message]
         );
