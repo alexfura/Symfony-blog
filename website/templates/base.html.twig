@@ -45,14 +45,6 @@
                     <h2>Menu</h2>
                 </header>
                 <ul>
-                    {% if app.user %}
-                        <li><a href="{{ path('user', {id : app.user.id}) }}">Hi, {{ app.user }}</a></li>
-                        <li><a href="{{ path('app_logout') }}">Logout</a></li>
-                    {% else %}
-                        <li><a href="{{ path('app_login') }}">Login</a></li>
-                        <li><a href="{{ path('app_register') }}">Register</a> </li>
-                    {% endif %}
-                    <li><a href="{{ path('about') }}">About</a></li>
                     <li><a href="{{ path('products_index') }}">Product CRUD</a></li>
                     <li><a href="{{ path('brands_index') }}">Brand CRUD</a></li>
                     <li><a href="{{ path('categories_index') }}">Category CRUD</a></li>
@@ -60,6 +52,7 @@
                     <li><a href="{{ path('suppliers_index') }}">Supplier CRUD</a></li>
                     <li><a href="{{ path('customers_index') }}">Customer CRUD</a></li>
                     <li><a href="{{ path('contracts_index') }}">Contract CRUD</a></li>
+                    <li><a href="{{ path('about') }}">About</a></li>
                 </ul>
             </nav>
             <!-- Section -->

@@ -4,32 +4,35 @@
 
 {% block content %}
     <h1>Categories index</h1>
-
-    <table class="table">
-        <thead>
+    <div class="table-wrapper">
+        <table class="table">
+            <thead>
             <tr>
                 <th>CategoryId</th>
                 <th>CategoryName</th>
-                <th>actions</th>
+                <th colspan="2">actions</th>
             </tr>
-        </thead>
-        <tbody>
-        {% for category in categories %}
-            <tr>
-                <td>{{ category.categoryId }}</td>
-                <td>{{ category.categoryName }}</td>
-                <td>
-                    <a href="{{ path('categories_show', {'categoryId': category.categoryId}) }}">show</a>
-                    <a href="{{ path('categories_edit', {'categoryId': category.categoryId}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {% for category in categories %}
+                <tr>
+                    <td>{{ category.categoryId }}</td>
+                    <td>{{ category.categoryName }}</td>
+                    <td>
+                        <a href="{{ path('categories_show', {'categoryId': category.categoryId}) }}">show</a>
+                    </td>
+                    <td>
+                        <a href="{{ path('categories_edit', {'categoryId': category.categoryId}) }}">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
-    <a href="{{ path('categories_new') }}">Create new</a>
+    <a href="{{ path('categories_new') }}" class="button">Create new</a>
 {% endblock %}

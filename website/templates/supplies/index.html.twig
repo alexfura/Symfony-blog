@@ -3,33 +3,35 @@
 {% block title %}Supplies index{% endblock %}
 
 {% block content %}
-    <h1>Enter your query:</h1>
-
-    <table class="table">
-        <thead>
+    <h1>Supplies crud</h1>
+    <div class="table-wrapper">
+        <table class="table">
+            <thead>
             <tr>
                 <th>SupplyId</th>
                 <th>SupplyQuantity</th>
-                <th>actions</th>
+                <th colspan="2">actions</th>
             </tr>
-        </thead>
-        <tbody>
-        {% for supply in supplies %}
-            <tr>
-                <td>{{ supply.supplyId }}</td>
-                <td>{{ supply.supplyQuantity }}</td>
-                <td>
-                    <a href="{{ path('supplies_show', {'supplyId': supply.supplyId}) }}">show</a>
-                    <a href="{{ path('supplies_edit', {'supplyId': supply.supplyId}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('supplies_new') }}">Create new</a>
+            </thead>
+            <tbody>
+            {% for supply in supplies %}
+                <tr>
+                    <td>{{ supply.supplyId }}</td>
+                    <td>{{ supply.supplyQuantity }}</td>
+                    <td>
+                        <a href="{{ path('supplies_edit', {'supplyId': supply.supplyId}) }}">edit</a>
+                    </td>
+                    <td>
+                        <a href="{{ path('supplies_show', {'supplyId': supply.supplyId}) }}">show</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <a href="{{ path('supplies_new') }}" class="button">Create new</a>
 {% endblock %}

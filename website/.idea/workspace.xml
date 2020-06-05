@@ -26,36 +26,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9fd34dd-57da-40d6-8769-81b45ae329a3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/website.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/website.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/for_user.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/framework.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes/dev/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes/dev/twig.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ormReset" beforeDir="false" afterPath="$PROJECT_DIR$/ormReset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/BrandsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BrandsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CategoriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CategoriesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ContractsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ContractsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CustomersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CustomersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AuthController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProductsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RessetingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RessetingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SuppliersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SuppliersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SuppliesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SuppliesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Categories.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ProductsType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ProductsType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ImageRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/PasswordResetRequestRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/PostRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/TopicRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RessetingController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/index.html.twig" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/products/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/products/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/brands/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/brands/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/categories/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/categories/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contracts/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contracts/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/customers/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/customers/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/emails/registration/confirm.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/emails/registration/welcome.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/emails/reset.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/front-html/elements.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/front-html/generic.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/front-html/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/post/create.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/post/edit.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/post/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/post/post.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/post/topic.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/products/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/products/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/confirmed.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/resetting/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/resetting/new_password.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/suppliers/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/suppliers/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/supplies/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/supplies/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -276,11 +279,11 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/assets" />
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -391,7 +394,7 @@
       <workItem from="1591177401987" duration="1000" />
       <workItem from="1591177411343" duration="2961000" />
       <workItem from="1591276059229" duration="7628000" />
-      <workItem from="1591344699698" duration="4828000" />
+      <workItem from="1591344699698" duration="11226000" />
     </task>
     <servers />
   </component>
@@ -435,10 +438,10 @@
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state x="418" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1591005939830" />
-    <state x="100" y="100" width="1720" height="844" key="DiffContextDialog" timestamp="1591291087991">
+    <state x="100" y="100" width="1720" height="844" key="DiffContextDialog" timestamp="1591372165536">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="100" y="100" width="1720" height="844" key="DiffContextDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1591291087991" />
+    <state x="100" y="100" width="1720" height="844" key="DiffContextDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1591372165536" />
     <state x="744" y="278" width="432" height="487" key="FileChooserDialogImpl" timestamp="1591109364978">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
@@ -459,14 +462,18 @@
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state width="1897" height="462" key="GridCell.Tab.0.right/0.0.1920.1044@0.0.1920.1044" timestamp="1590843867772" />
+    <state x="681" y="241" key="NewPhpClassDialog" timestamp="1591371746560">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state x="681" y="241" key="NewPhpClassDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1591371746560" />
     <state x="457" y="155" key="SettingsEditor" timestamp="1591006213771">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state x="457" y="155" key="SettingsEditor/0.0.1920.1044@0.0.1920.1044" timestamp="1591006213771" />
-    <state x="664" y="261" width="652" height="522" key="find.popup" timestamp="1591350370247">
+    <state x="664" y="261" width="654" height="586" key="find.popup" timestamp="1591372093089">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="664" y="261" width="652" height="522" key="find.popup/0.0.1920.1044@0.0.1920.1044" timestamp="1591350370247" />
+    <state x="664" y="261" width="654" height="586" key="find.popup/0.0.1920.1044@0.0.1920.1044" timestamp="1591372093089" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -478,13 +485,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/Controller/DefaultController.php</url>
-          <line>23</line>
+          <line>22</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/Controller/DefaultController.php</url>
-          <line>25</line>
+          <line>23</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/DataFixtures/AppFixtures.php</url>
+          <line>3</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/src/Controller/DefaultController.php</url>

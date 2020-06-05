@@ -4,38 +4,41 @@
 
 {% block content %}
     <h1>Suppliers index</h1>
-
-    <table class="table">
-        <thead>
+    <div class="table-wrapper">
+        <table class="table">
+            <thead>
             <tr>
                 <th>SupplierId</th>
                 <th>SupplierName</th>
                 <th>SupplierSecondName</th>
                 <th>SupplierAddress</th>
                 <th>SupplierPhone</th>
-                <th>actions</th>
+                <th colspan="2">actions</th>
             </tr>
-        </thead>
-        <tbody>
-        {% for supplier in suppliers %}
-            <tr>
-                <td>{{ supplier.supplierId }}</td>
-                <td>{{ supplier.supplierName }}</td>
-                <td>{{ supplier.supplierSecondName }}</td>
-                <td>{{ supplier.supplierAddress }}</td>
-                <td>{{ supplier.supplierPhone }}</td>
-                <td>
-                    <a href="{{ path('suppliers_show', {'supplierId': supplier.supplierId}) }}">show</a>
-                    <a href="{{ path('suppliers_edit', {'supplierId': supplier.supplierId}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {% for supplier in suppliers %}
+                <tr>
+                    <td>{{ supplier.supplierId }}</td>
+                    <td>{{ supplier.supplierName }}</td>
+                    <td>{{ supplier.supplierSecondName }}</td>
+                    <td>{{ supplier.supplierAddress }}</td>
+                    <td>{{ supplier.supplierPhone }}</td>
+                    <td>
+                        <a href="{{ path('suppliers_edit', {'supplierId': supplier.supplierId}) }}">edit</a>
+                    </td>
+                    <td>
+                        <a href="{{ path('suppliers_show', {'supplierId': supplier.supplierId}) }}">show</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
-    <a href="{{ path('suppliers_new') }}">Create new</a>
+    <a href="{{ path('suppliers_new') }}" class="button">Create new</a>
 {% endblock %}

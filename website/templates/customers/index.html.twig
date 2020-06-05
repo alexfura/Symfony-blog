@@ -4,36 +4,39 @@
 
 {% block content %}
     <h1>Customers index</h1>
-
-    <table class="table">
-        <thead>
+    <div class="table-wrapper">
+        <table class="table">
+            <thead>
             <tr>
                 <th>CustomerId</th>
                 <th>CustomerFirstName</th>
                 <th>CustomerSecondName</th>
                 <th>CustomerPhone</th>
-                <th>actions</th>
+                <th colspan="2">actions</th>
             </tr>
-        </thead>
-        <tbody>
-        {% for customer in customers %}
-            <tr>
-                <td>{{ customer.customerId }}</td>
-                <td>{{ customer.customerFirstName }}</td>
-                <td>{{ customer.customerSecondName }}</td>
-                <td>{{ customer.customerPhone }}</td>
-                <td>
-                    <a href="{{ path('customers_show', {'customerId': customer.customerId}) }}">show</a>
-                    <a href="{{ path('customers_edit', {'customerId': customer.customerId}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {% for customer in customers %}
+                <tr>
+                    <td>{{ customer.customerId }}</td>
+                    <td>{{ customer.customerFirstName }}</td>
+                    <td>{{ customer.customerSecondName }}</td>
+                    <td>{{ customer.customerPhone }}</td>
+                    <td>
+                        <a href="{{ path('customers_show', {'customerId': customer.customerId}) }}">show</a>
+                    </td>
+                    <td>
+                        <a href="{{ path('customers_edit', {'customerId': customer.customerId}) }}">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
-    <a href="{{ path('customers_new') }}">Create new</a>
+    <a href="{{ path('customers_new') }}" class="button">Create new</a>
 {% endblock %}

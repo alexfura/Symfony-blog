@@ -4,32 +4,35 @@
 
 {% block content %}
     <h1>Brands index</h1>
-
-    <table class="table">
-        <thead>
+    <div class="table-wrapper">
+        <table class="table">
+            <thead>
             <tr>
                 <th>BrandId</th>
                 <th>BrandName</th>
-                <th>actions</th>
+                <th colspan="2">actions</th>
             </tr>
-        </thead>
-        <tbody>
-        {% for brand in brands %}
-            <tr>
-                <td>{{ brand.brandId }}</td>
-                <td>{{ brand.brandName }}</td>
-                <td>
-                    <a href="{{ path('brands_show', {'brandId': brand.brandId}) }}">show</a>
-                    <a href="{{ path('brands_edit', {'brandId': brand.brandId}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {% for brand in brands %}
+                <tr>
+                    <td>{{ brand.brandId }}</td>
+                    <td>{{ brand.brandName }}</td>
+                    <td>
+                        <a href="{{ path('brands_show', {'brandId': brand.brandId}) }}">show</a>
+                    </td>
+                    <td>
+                        <a href="{{ path('brands_edit', {'brandId': brand.brandId}) }}">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
-    <a href="{{ path('brands_new') }}">Create new</a>
+    <a href="{{ path('brands_new') }}" class="button">Create new</a>
 {% endblock %}

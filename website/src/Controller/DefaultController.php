@@ -20,9 +20,7 @@ class DefaultController extends AbstractController
      */
     public function index()
     {
-        // get home page
         $message = "Random message";
-//        $em = $this->getDoctrine()->getManager();
         return $this->render(
             'home.html.twig', ['message' => $message]
         );
@@ -40,14 +38,4 @@ class DefaultController extends AbstractController
             'about.html.twig', ['message' => $about_message]
         );
     }
-
-//    /**
-//     * @return \Symfony\Component\HttpFoundation\Response
-//     */
-//    public function showSideBar()
-//    {
-//        $topics = $this->getDoctrine()->getRepository(Topic::class)->findAll();
-//
-//        return $this->render('layouts/sidebar.html.twig', ['topics' => $topics]);
-//    }
 }
