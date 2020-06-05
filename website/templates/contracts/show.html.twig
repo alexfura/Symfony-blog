@@ -5,8 +5,9 @@
 {% block content %}
     <h1>Contracts</h1>
 
-    <table class="table">
-        <tbody>
+    <div class="table-wrapper">
+        <table class="table">
+            <tbody>
             <tr>
                 <th>ContractId</th>
                 <td>{{ contract.contractId }}</td>
@@ -27,12 +28,18 @@
                 <th>ContractSupplyDate</th>
                 <td>{{ contract.contractSupplyDate ? contract.contractSupplyDate|date('Y-m-d') : '' }}</td>
             </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('contracts_index') }}">back to list</a>
-
-    <a href="{{ path('contracts_edit', {'contractId': contract.contractId}) }}">edit</a>
-
-    {{ include('contracts/_delete_form.html.twig') }}
+            </tbody>
+        </table>
+    </div>
+    <ul class="actions small">
+        <li>
+            <a href="{{ path('contracts_index') }}" class="button">back to list</a>
+        </li>
+        <li>
+            <a href="{{ path('contracts_edit', {'contractId': contract.contractId}) }}" class="button">edit</a>
+        </li>
+        <li>
+            {{ include('contracts/_delete_form.html.twig') }}
+        </li>
+    </ul>
 {% endblock %}

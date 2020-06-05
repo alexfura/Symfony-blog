@@ -5,8 +5,9 @@
 {% block content %}
     <h1>Suppliers</h1>
 
-    <table class="table">
-        <tbody>
+    <div class="table-wrapper">
+        <table class="table">
+            <tbody>
             <tr>
                 <th>SupplierId</th>
                 <td>{{ supplier.supplierId }}</td>
@@ -27,12 +28,18 @@
                 <th>SupplierPhone</th>
                 <td>{{ supplier.supplierPhone }}</td>
             </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('suppliers_index') }}">back to list</a>
-
-    <a href="{{ path('suppliers_edit', {'supplierId': supplier.supplierId}) }}">edit</a>
-
-    {{ include('suppliers/_delete_form.html.twig') }}
+            </tbody>
+        </table>
+    </div>
+    <ul class="actions small">
+        <li>
+            <a href="{{ path('suppliers_index') }}" class="button">back to list</a>
+        </li>
+        <li>
+            <a href="{{ path('suppliers_edit', {'supplierId': supplier.supplierId}) }}" class="button">edit</a>
+        </li>
+        <li>
+            {{ include('suppliers/_delete_form.html.twig') }}
+        </li>
+    </ul>
 {% endblock %}

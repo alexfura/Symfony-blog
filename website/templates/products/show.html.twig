@@ -6,49 +6,53 @@
     <div class="inner">
         <h1>Products</h1>
 
-        <table class="table">
-            <tbody>
-            <tr>
-                <th>ProductId</th>
-                <td>{{ product.productId }}</td>
-            </tr>
-            <tr>
-                <th>ProductName</th>
-                <td>{{ product.productName }}</td>
-            </tr>
-            <tr>
-                <th>ProductManDate</th>
-                <td>{{ product.productManDate ? product.productManDate|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>ProductExpDate</th>
-                <td>{{ product.productExpDate ? product.productExpDate|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>ProductBrand</th>
-                {%  if product.productBrand is not null %}
-                    <td>{{ product.productBrand.brandName }}</td>
+        <div class="table-wrapper">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <th>ProductId</th>
+                    <td>{{ product.productId }}</td>
+                </tr>
+                <tr>
+                    <th>ProductName</th>
+                    <td>{{ product.productName }}</td>
+                </tr>
+                <tr>
+                    <th>ProductManDate</th>
+                    <td>{{ product.productManDate ? product.productManDate|date('Y-m-d') : '' }}</td>
+                </tr>
+                <tr>
+                    <th>ProductExpDate</th>
+                    <td>{{ product.productExpDate ? product.productExpDate|date('Y-m-d') : '' }}</td>
+                </tr>
+                <tr>
+                    <th>ProductBrand</th>
+                    {%  if product.productBrand is not null %}
+                        <td>{{ product.productBrand.brandName }}</td>
 
-                {% else %}
-                    <td>-</td>
-                {% endif %}
-            </tr>
-            <tr>
-                <th>ProductBrand</th>
-                {%  if product.productCategory is not null %}
-                    <td>{{ product.productCategory.categoryName }}</td>
-                {% else %}
-                    <td>-</td>
-                {% endif %}
-            </tr>
-            </tbody>
-        </table>
+                    {% else %}
+                        <td>-</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <th>ProductBrand</th>
+                    {%  if product.productCategory is not null %}
+                        <td>{{ product.productCategory.categoryName }}</td>
+                    {% else %}
+                        <td>-</td>
+                    {% endif %}
+                </tr>
+                </tbody>
+            </table>
+        </div>
 
-        <a href="{{ path('products_index') }}">back to list</a>
-
-        <a href="{{ path('products_edit', {'productId': product.productId}) }}">edit</a>
-
-        {{ include('products/_delete_form.html.twig') }}
+        <ul class="actions small">
+            <li><a href="{{ path('products_index') }}" class="button">back to list</a></li>
+            <li><a href="{{ path('products_edit', {'productId': product.productId}) }}" class="button">edit</a></li>
+            <li>
+                {{ include('products/_delete_form.html.twig') }}
+            </li>
+        </ul>
     </div>
 
 {% endblock  content %}

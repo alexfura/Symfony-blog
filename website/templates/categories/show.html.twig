@@ -4,9 +4,9 @@
 
 {% block content %}
     <h1>Categories</h1>
-
-    <table class="table">
-        <tbody>
+    <div class="table-wrapper">
+        <table class="table">
+            <tbody>
             <tr>
                 <th>CategoryId</th>
                 <td>{{ category.categoryId }}</td>
@@ -15,12 +15,18 @@
                 <th>CategoryName</th>
                 <td>{{ category.categoryName }}</td>
             </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('categories_index') }}">back to list</a>
-
-    <a href="{{ path('categories_edit', {'categoryId': category.categoryId}) }}">edit</a>
-
-    {{ include('categories/_delete_form.html.twig') }}
+            </tbody>
+        </table>
+    </div>
+    <ul class="actions small">
+        <li>
+            <a href="{{ path('categories_index') }}" class="button">back to list</a>
+        </li>
+        <li>
+            <a href="{{ path('categories_edit', {'categoryId': category.categoryId}) }}" class="button">edit</a>
+        </li>
+        <li>
+            {{ include('categories/_delete_form.html.twig') }}
+        </li>
+    </ul>
 {% endblock %}

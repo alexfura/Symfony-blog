@@ -7,28 +7,36 @@
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>CustomerId</th>
-                <td>{{ customer.customerId }}</td>
-            </tr>
-            <tr>
-                <th>CustomerFirstName</th>
-                <td>{{ customer.customerFirstName }}</td>
-            </tr>
-            <tr>
-                <th>CustomerSecondName</th>
-                <td>{{ customer.customerSecondName }}</td>
-            </tr>
-            <tr>
-                <th>CustomerPhone</th>
-                <td>{{ customer.customerPhone }}</td>
-            </tr>
+        <tr>
+            <th>CustomerId</th>
+            <td>{{ customer.customerId }}</td>
+        </tr>
+        <tr>
+            <th>CustomerFirstName</th>
+            <td>{{ customer.customerFirstName }}</td>
+        </tr>
+        <tr>
+            <th>CustomerSecondName</th>
+            <td>{{ customer.customerSecondName }}</td>
+        </tr>
+        <tr>
+            <th>CustomerPhone</th>
+            <td>{{ customer.customerPhone }}</td>
+        </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('customers_index') }}">back to list</a>
+    <ul class="actions small">
+        <li>
+            <a href="{{ path('customers_index') }}" class="button">back to list</a>
+        </li>
+        <li>
+            <a href="{{ path('customers_edit', {'customerId': customer.customerId}) }}" class="button">edit</a>
+        </li>
+        <li>
+            {{ include('customers/_delete_form.html.twig') }}
+        </li>
+    </ul>
 
-    <a href="{{ path('customers_edit', {'customerId': customer.customerId}) }}">edit</a>
 
-    {{ include('customers/_delete_form.html.twig') }}
 {% endblock %}
