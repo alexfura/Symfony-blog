@@ -19,13 +19,9 @@ class ProductsType extends AbstractType
             ->add('productName')
             ->add('productManDate', DateTimeType::class, [
                 'widget' => 'single_text',
-                'format' => 'yyyy-MM-dd',
-                'help' => 'Date format: yyyy-MM-dd'
             ])
             ->add('productExpDate', DateTimeType::class, [
                 'widget' => 'single_text',
-                'format' => 'yyyy-MM-dd',
-                'help' => 'Date format: yyyy-MM-dd'
             ])
             ->add('productCategory', EntityType::class, [
                 'class' => Categories::class,

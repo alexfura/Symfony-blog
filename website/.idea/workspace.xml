@@ -26,22 +26,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9fd34dd-57da-40d6-8769-81b45ae329a3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Repository/ProductRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/brands/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/brands/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/categories/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/categories/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contracts/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contracts/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/customers/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/customers/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/products/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/products/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/suppliers/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/suppliers/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/supplies/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/supplies/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/topic/_delete_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/topic/_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/topic/edit.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/topic/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/topic/new.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/topic/show.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/edit.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ContractsType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ContractsType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ImageType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/NewPasswordType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/PassResetType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/PostType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ProductsType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ProductsType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/UserType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/brands/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/brands/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/brands/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/brands/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contracts/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contracts/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contracts/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contracts/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/customers/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/customers/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/customers/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/customers/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/products/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/products/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/products/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/products/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/suppliers/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/suppliers/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/suppliers/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/suppliers/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/supplies/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/supplies/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/supplies/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/supplies/edit.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -377,7 +383,8 @@
       <workItem from="1591177401987" duration="1000" />
       <workItem from="1591177411343" duration="2961000" />
       <workItem from="1591276059229" duration="7628000" />
-      <workItem from="1591344699698" duration="12699000" />
+      <workItem from="1591344699698" duration="18926000" />
+      <workItem from="1591441836335" duration="5121000" />
     </task>
     <servers />
   </component>
@@ -445,18 +452,18 @@
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state width="1897" height="462" key="GridCell.Tab.0.right/0.0.1920.1044@0.0.1920.1044" timestamp="1590843867772" />
-    <state x="681" y="241" key="NewPhpClassDialog" timestamp="1591371746560">
+    <state x="681" y="241" width="557" height="561" key="NewPhpClassDialog" timestamp="1591446908272">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="681" y="241" key="NewPhpClassDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1591371746560" />
+    <state x="681" y="241" width="557" height="561" key="NewPhpClassDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1591446908272" />
     <state x="457" y="155" key="SettingsEditor" timestamp="1591006213771">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state x="457" y="155" key="SettingsEditor/0.0.1920.1044@0.0.1920.1044" timestamp="1591006213771" />
-    <state x="664" y="261" width="654" height="586" key="find.popup" timestamp="1591372093089">
+    <state x="664" y="261" width="654" height="586" key="find.popup" timestamp="1591375043052">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="664" y="261" width="654" height="586" key="find.popup/0.0.1920.1044@0.0.1920.1044" timestamp="1591372093089" />
+    <state x="664" y="261" width="654" height="586" key="find.popup/0.0.1920.1044@0.0.1920.1044" timestamp="1591375043052" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

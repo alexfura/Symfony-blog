@@ -16,8 +16,12 @@ class ContractsType extends AbstractType
         $builder
             ->add('contractPrice')
             ->add('contractSale')
-            ->add('contractSignatureDate', DateTimeType::class)
-            ->add('contractSupplyDate', DateTimeType::class)
+            ->add('contractSignatureDate', DateTimeType::class, [
+                'widget' => 'single_text'
+            ])
+            ->add('contractSupplyDate', DateTimeType::class, [
+                'widget' => 'single_text'
+            ])
         ;
     }
 
