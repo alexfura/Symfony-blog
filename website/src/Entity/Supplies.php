@@ -50,6 +50,11 @@ class Supplies
     private $supplyContract;
 
     /**
+     * @ORM\Column(name="contract_supply_date", type="date", nullable=true)
+     */
+    private $supplyDate;
+
+    /**
      * @return int
      */
     public function getSupplyId(): int
@@ -62,7 +67,7 @@ class Supplies
         $this->supplyId = $supplyId;
     }
 
-    public function getSupplyQuantity()
+    public function getSupplyQuantity(): int
     {
         return $this->supplyQuantity;
     }
@@ -107,5 +112,19 @@ class Supplies
         $this->supplyContract = $supplyContract;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getSupplyDate()
+    {
+        return $this->supplyDate;
+    }
 
+    /**
+     * @param mixed $supplyDate
+     */
+    public function setSupplyDate($supplyDate): void
+    {
+        $this->supplyDate = $supplyDate;
+    }
 }
