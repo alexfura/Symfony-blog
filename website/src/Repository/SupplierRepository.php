@@ -4,11 +4,16 @@
 namespace App\Repository;
 
 
+use App\Entity\Suppliers;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\DBAL\DBALException;
 use Doctrine\DBAL\Driver\PDOException;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Mapping;
+use Doctrine\Persistence\ManagerRegistry;
 
-class SupplierRepository extends EntityRepository
+class SupplierRepository extends ServiceEntityRepository
 {
     public const GOOD_SUPPLIER = '';
 
@@ -16,9 +21,15 @@ class SupplierRepository extends EntityRepository
 
     public const OTHER_SUPPLIER = '';
 
+    public function __construct(ManagerRegistry $registry)
+    {
+        parent::__construct($registry, Suppliers::class);
+    }
+
     public function getSuppliersRatedByExpiredContractCount(): ?array
     {
-        $sqlQuery = "WITH SUPPLIERS AS(
+        $sql = <<<EOT
+        WITH SUPPLIERS AS(
             SELECT Supplier.name AS SUPPLIER, AGE(Contract.signature_date, Supply.supply_date) AS SUPPLY_TIME
             FROM Contract
             JOIN Supply ON Supply.contract_id = Contract.id
@@ -44,10 +55,12 @@ class SupplierRepository extends EntityRepository
         SELECT SUPPLIER FROM SUPPLIERS
         WHERE EXTRACT(YEAR FROM SUPPLY_TIME) < 0 AND
         EXTRACT(MONTH FROM SUPPLY_TIME) < 0 AND
-        EXTRACT(DAY FROM SUPPLY_TIME) < 0);";
+        EXTRACT(DAY FROM SUPPLY_TIME) < 0);
+EOT;
 
-        $query = $this->getEntityManager()->createQuery($sqlQuery);
+        $connection = $this->getEntityManager()->getConnection();
+        $statement = $connection->query($sql);
 
-        return $query->getResult();
+        return $statement->fetchAll();
     }
 }

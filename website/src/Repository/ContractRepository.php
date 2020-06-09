@@ -4,10 +4,25 @@
 namespace App\Repository;
 
 
+use App\Entity\Contracts;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\DBAL\DBALException;
 use Doctrine\ORM\EntityRepository;
+use Doctrine\Persistence\ManagerRegistry;
 
-class ContractRepository extends EntityRepository
+class ContractRepository extends ServiceEntityRepository
 {
+
+    public function __construct(ManagerRegistry $registry)
+    {
+        parent::__construct($registry, Contracts::class);
+    }
+
+    /**
+     * @param int $countOfMonths
+     * @return array|null
+     * @throws DBALException
+     */
     public function getContractsWithExpiredSuppliesForLastNMonths(int $countOfMonths): ?array
     {
         $sql = <<<EOT
@@ -26,9 +41,9 @@ class ContractRepository extends EntityRepository
         EXTRACT(MONTH FROM AGE(CURRENT_DATE, signature_date)),
         EXTRACT(DAY FROM AGE(CURRENT_DATE, signature_date)) DESC;
 EOT;
+        $connection = $this->getEntityManager()->getConnection();
+        $statement = $connection->query($sql);
 
-        $query = $this->getEntityManager()->createQuery($sql);
-
-        return $query->getArrayResult();
+        return $statement->fetchAll();
     }
 }

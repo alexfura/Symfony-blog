@@ -132,6 +132,9 @@
             "ref": "258300d52be6ad59b32a888d5ddafbf9638540ff"
         }
     },
+    "fzaninotto/faker": {
+        "version": "v1.9.1"
+    },
     "gedmo/doctrine-extensions": {
         "version": "v2.4.37"
     },
@@ -143,6 +146,9 @@
     },
     "knplabs/knp-paginator-bundle": {
         "version": "v3.0.0"
+    },
+    "mbezhanov/faker-provider-collection": {
+        "version": "1.2.1"
     },
     "myclabs/deep-copy": {
         "version": "1.9.1"

@@ -25,7 +25,7 @@ class Customers
     /**
      * @var string
      *
-     * @ORM\Column(name="customer_first_name", type="string", length=40, nullable=false)
+     * @ORM\Column(name="customer_first_name", type="string", length=122, nullable=false)
      */
     private $customerFirstName;
 

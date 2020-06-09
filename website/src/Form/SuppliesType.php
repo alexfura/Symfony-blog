@@ -7,6 +7,7 @@ use App\Entity\Products;
 use App\Entity\Supplies;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -23,6 +24,9 @@ class SuppliesType extends AbstractType
             ->add('supplyContract', EntityType::class, [
                 'class' => Contracts::class,
                 'choice_label' => 'contract_id'
+            ])
+            ->add('supplyDate', DateTimeType::class, [
+                'widget' => 'single_text',
             ]);
     }
 

@@ -5,6 +5,7 @@ namespace App\Entity;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Contracts
@@ -35,6 +36,7 @@ class Contracts
      * @var int|null
      *
      * @ORM\Column(name="contract_sale", type="integer", nullable=true)
+     * @Assert\Range(min=0, max=100, notInRangeMessage="Value must be from 0 to 100")
      */
     private $contractSale;
 

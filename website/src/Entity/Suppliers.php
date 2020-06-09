@@ -79,7 +79,7 @@ class Suppliers
     /**
      * @return string
      */
-    public function getSupplierName(): string
+    public function getSupplierName(): ?string
     {
         return $this->supplierName;
     }
@@ -95,7 +95,7 @@ class Suppliers
     /**
      * @return string
      */
-    public function getSupplierSecondName(): string
+    public function getSupplierSecondName(): ?string
     {
         return $this->supplierSecondName;
     }
@@ -111,7 +111,7 @@ class Suppliers
     /**
      * @return string
      */
-    public function getSupplierAddress(): string
+    public function getSupplierAddress(): ?string
     {
         return $this->supplierAddress;
     }
@@ -127,7 +127,7 @@ class Suppliers
     /**
      * @return string
      */
-    public function getSupplierPhone(): string
+    public function getSupplierPhone(): ?string
     {
         return $this->supplierPhone;
     }
@@ -143,7 +143,7 @@ class Suppliers
     /**
      * @return Contracts
      */
-    public function getSupplierContract(): Contracts
+    public function getSupplierContract(): ?Contracts
     {
         return $this->supplierContract;
     }

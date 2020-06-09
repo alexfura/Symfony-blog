@@ -26,49 +26,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9fd34dd-57da-40d6-8769-81b45ae329a3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/StatisticsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/ContractFixture.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/ProductFixture.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/ContractRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/SupplierRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/statistic/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/SupplyRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/website.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/website.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Image.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/PasswordResetRequest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Supplies.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Supplies.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190616182258.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190618111240.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190618111449.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190618121741.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190618125631.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190618133259.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190619131037.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190619131933.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190621072827.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190621074039.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190621074514.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190621131145.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190625103600.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190626123441.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190703112539.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190708133527.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190708134726.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190708135548.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190710170628.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190710182536.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190711082619.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190712123650.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190714155150.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190714175921.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190714180922.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190722143349.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191123153706.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191123154405.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200601100911.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ProductRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ProductRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/StatisticsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/StatisticsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/ProductFixture.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Contracts.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Contracts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Customers.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Customers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Log.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Log.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Products.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Products.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Suppliers.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Suppliers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/SuppliesType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SuppliesType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200608160532.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Migrations/Version20200608160532.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ContractRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ContractRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/SupplierRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/SupplierRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/AdminService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/AuthService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/CircularReferenceHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/FileUploader.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/UserService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,6 +238,8 @@
       <path value="$PROJECT_DIR$/vendor/codeception/lib-asserts" />
       <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
       <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/vendor/mbezhanov/faker-provider-collection" />
     </include_path>
   </component>
   <component name="ProjectId" id="1TvovQaGUKRy2yZn3ImnqqIIpqB" />
@@ -275,7 +259,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../zm-master" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -407,7 +391,8 @@
       <workItem from="1591344699698" duration="18926000" />
       <workItem from="1591441836335" duration="5121000" />
       <workItem from="1591514953065" duration="14238000" />
-      <workItem from="1591612299891" duration="8954000" />
+      <workItem from="1591612299891" duration="17972000" />
+      <workItem from="1591688257182" duration="14417000" />
     </task>
     <servers />
   </component>
@@ -455,18 +440,22 @@
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state x="418" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1591005939830" />
-    <state x="747" y="239" key="#com.intellij.ide.util.MemberChooser" timestamp="1591632307176">
+    <state x="747" y="239" width="425" height="565" key="#com.intellij.ide.util.MemberChooser" timestamp="1591703048819">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="747" y="239" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1044@0.0.1920.1044" timestamp="1591632307176" />
+    <state x="747" y="239" width="425" height="565" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1044@0.0.1920.1044" timestamp="1591703048819" />
+    <state x="694" y="278" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1591636641705">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state x="694" y="278" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1591636641705" />
     <state x="100" y="100" width="1720" height="844" key="DiffContextDialog" timestamp="1591372165536">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state x="100" y="100" width="1720" height="844" key="DiffContextDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1591372165536" />
-    <state x="744" y="278" width="432" height="487" key="FileChooserDialogImpl" timestamp="1591109364978">
+    <state x="744" y="278" width="432" height="487" key="FileChooserDialogImpl" timestamp="1591728700379">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="744" y="278" width="432" height="487" key="FileChooserDialogImpl/0.0.1920.1044@0.0.1920.1044" timestamp="1591109364978" />
+    <state x="744" y="278" width="432" height="487" key="FileChooserDialogImpl/0.0.1920.1044@0.0.1920.1044" timestamp="1591728700379" />
     <state width="1897" height="462" key="GridCell.Tab.0.bottom" timestamp="1590843867772">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
@@ -483,10 +472,10 @@
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state width="1897" height="462" key="GridCell.Tab.0.right/0.0.1920.1044@0.0.1920.1044" timestamp="1590843867772" />
-    <state x="681" y="241" width="571" height="561" key="NewPhpClassDialog" timestamp="1591612415212">
+    <state x="681" y="241" width="571" height="561" key="NewPhpClassDialog" timestamp="1591716240959">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="681" y="241" width="571" height="561" key="NewPhpClassDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1591612415212" />
+    <state x="681" y="241" width="571" height="561" key="NewPhpClassDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1591716240959" />
     <state x="777" y="447" width="363" height="152" key="NewPhpFileDialog" timestamp="1591515590342">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
@@ -495,18 +484,18 @@
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state x="457" y="155" key="SettingsEditor/0.0.1920.1044@0.0.1920.1044" timestamp="1591006213771" />
-    <state x="664" y="261" width="654" height="586" key="find.popup" timestamp="1591375043052">
+    <state x="664" y="261" width="654" height="586" key="find.popup" timestamp="1591728408306">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="664" y="261" width="654" height="586" key="find.popup/0.0.1920.1044@0.0.1920.1044" timestamp="1591375043052" />
+    <state x="664" y="261" width="654" height="586" key="find.popup/0.0.1920.1044@0.0.1920.1044" timestamp="1591728408306" />
     <state x="624" y="238" key="run.anything.popup" timestamp="1591613227002">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state x="624" y="238" key="run.anything.popup/0.0.1920.1044@0.0.1920.1044" timestamp="1591613227002" />
-    <state x="623" y="230" key="search.everywhere.popup" timestamp="1591540764569">
+    <state x="623" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1591717156953">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="623" y="230" key="search.everywhere.popup/0.0.1920.1044@0.0.1920.1044" timestamp="1591540764569" />
+    <state x="623" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1044@0.0.1920.1044" timestamp="1591717156953" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -528,8 +517,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/Repository/SupplierRepository.php</url>
-          <line>21</line>
+          <line>32</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/Entity/Contracts.php</url>
+          <line>4</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/src/Controller/DefaultController.php</url>
