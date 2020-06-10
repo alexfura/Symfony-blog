@@ -8,7 +8,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Supplies
  *
- * @ORM\Table(name="supplies",
+ * @ORM\Table(
+ *      name="supplies",
  *      indexes={@ORM\Index(name="IDX_EC2D5CE86FFD5800",
  *      columns={"supply_product"}),
  *      @ORM\Index(name="IDX_EC2D5CE841544050",

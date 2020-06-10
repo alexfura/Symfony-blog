@@ -8,11 +8,13 @@
         <table class="table">
             <thead>
             <tr>
-                <th>ContractId</th>
-                <th>ContractPrice</th>
-                <th>ContractSale</th>
-                <th>ContractSignatureDate</th>
-                <th>ContractSupplyDate</th>
+                <th>Contract id</th>
+                <th>Contract price</th>
+                <th>Contract sale</th>
+                <th>Contract signature date</th>
+                <th>Contract supply date</th>
+                <th>Contract supplier</th>
+                <th>Contract customer</th>
                 <th colspan="2">actions</th>
             </tr>
             </thead>
@@ -22,8 +24,14 @@
                     <td>{{ contract.contractId }}</td>
                     <td>{{ contract.contractPrice }}</td>
                     <td>{{ contract.contractSale }}</td>
-                    <td>{{ contract.contractSignatureDate ? contract.contractSignatureDate|date('Y-m-d') : '' }}</td>
-                    <td>{{ contract.contractSupplyDate ? contract.contractSupplyDate|date('Y-m-d') : '' }}</td>
+                    <td>{{ contract.contractSignatureDate ? contract.contractSignatureDate|date('Y-m-d') : '-' }}</td>
+                    <td>{{ contract.contractSupplyDate ? contract.contractSupplyDate|date('Y-m-d') : '-' }}</td>
+                    <td>
+                        {{ contract.contractSupplier ? contract.contractSupplier.supplierName : '-' }}
+                    </td>
+                    <td>
+                        {{ contract.contractCustomer ? contract.contractCustomer.customerName: '-' }}
+                    </td>
                     <td>
                         <a href="{{ path('contracts_show', {'contractId': contract.contractId}) }}">show</a>
                     </td>
@@ -32,9 +40,7 @@
                     </td>
                 </tr>
             {% else %}
-                <tr>
-                    <td colspan="6">no records found</td>
-                </tr>
+                <h3>No records found.</h3>
             {% endfor %}
             </tbody>
         </table>

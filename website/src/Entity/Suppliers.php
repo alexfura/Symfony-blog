@@ -13,12 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Suppliers
 {
-    public const DELIVERED = 'delivered';
-
-    public const CANCELED = 'canceled';
-
-    public const PREPARING = 'waiting_for_transporting';
-
     /**
      * @var int
      *
@@ -30,34 +24,36 @@ class Suppliers
     private $supplierId;
 
     /**
-     * @var string
+     * @var string $supplierName
      *
      * @ORM\Column(name="supplier_name", type="string", length=40, nullable=false)
      */
     private $supplierName;
 
     /**
-     * @var string
+     * @var string $supplierSecondName
      *
      * @ORM\Column(name="supplier_second_name", type="string", length=40, nullable=false)
      */
     private $supplierSecondName;
 
     /**
-     * @var string
+     * @var string $supplierAddress
      *
      * @ORM\Column(name="supplier_address", type="string", length=40, nullable=false)
      */
     private $supplierAddress;
 
     /**
-     * @var string
+     * @var string $supplierPhone
      *
      * @ORM\Column(name="supplier_phone", type="string", length=40, nullable=false)
      */
     private $supplierPhone;
 
     /**
+     * @var ArrayCollection $supplierContracts
+     *
      * @ORM\OneToMany(targetEntity="Contracts", mappedBy="contractSupplier")
      */
     private $supplierContracts;

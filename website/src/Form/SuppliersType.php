@@ -18,10 +18,6 @@ class SuppliersType extends AbstractType
             ->add('supplierSecondName')
             ->add('supplierAddress')
             ->add('supplierPhone')
-            ->add('supplierContract', EntityType::class, [
-                'class' => Contracts::class,
-                'choice_label' => 'contract_id'
-            ])
         ;
     }
 
