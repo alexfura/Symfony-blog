@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Customers
  *
- * @ORM\Table(name="customers", indexes={@ORM\Index(name="IDX_62534E21C54A6B76", columns={"customer_contract"})})
+ * @ORM\Table(name="customers")
  * @ORM\Entity
  */
 class Customers
@@ -45,13 +45,9 @@ class Customers
 
     /**
      * @var Contracts
-     *
-     * @ORM\ManyToOne(targetEntity="Contracts", inversedBy="contractCustomers")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="customer_contract", referencedColumnName="contract_id", onDelete="SET NULL")
-     * })
+     * @ORM\OneToMany(targetEntity="Contracts", mappedBy="contractCustomer")
      */
-    private $customerContract;
+    private $customerContracts;
 
     /**
      * @return int
@@ -103,18 +99,4 @@ class Customers
     {
         $this->customerPhone = $customerPhone;
     }
-
-
-    public function getCustomerContract(): ?Contracts
-    {
-        return $this->customerContract;
-    }
-
-
-    public function setCustomerContract(Contracts $customerContract): void
-    {
-        $this->customerContract = $customerContract;
-    }
-
-
 }

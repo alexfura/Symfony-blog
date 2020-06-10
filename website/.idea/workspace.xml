@@ -20,37 +20,22 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:basic-crud" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9fd34dd-57da-40d6-8769-81b45ae329a3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Repository/SupplyRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/website.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/website.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/StatisticsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/StatisticsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/ProductFixture.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/ProductFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/ProductFixtures.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Contracts.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Contracts.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Customers.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Customers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Log.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Log.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Products.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Products.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Suppliers.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Suppliers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/SuppliesType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SuppliesType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200608160532.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Migrations/Version20200608160532.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ContractRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ContractRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/SupplierRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/SupplierRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/AdminService.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/AuthService.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/CircularReferenceHandler.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/FileUploader.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/UserService.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Supplies.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Supplies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/products/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/products/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/products/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/products/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -392,7 +377,9 @@
       <workItem from="1591441836335" duration="5121000" />
       <workItem from="1591514953065" duration="14238000" />
       <workItem from="1591612299891" duration="17972000" />
-      <workItem from="1591688257182" duration="14417000" />
+      <workItem from="1591688257182" duration="22168000" />
+      <workItem from="1591766956704" duration="2354000" />
+      <workItem from="1591789828244" duration="9870000" />
     </task>
     <servers />
   </component>
@@ -405,12 +392,17 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
               <option name="FILTERS">
                 <map>
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="basic-crud" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -440,42 +432,78 @@
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state x="418" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1591005939830" />
-    <state x="747" y="239" width="425" height="565" key="#com.intellij.ide.util.MemberChooser" timestamp="1591703048819">
+    <state x="747" y="239" width="425" height="565" key="#com.intellij.ide.util.MemberChooser" timestamp="1591801597702">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="747" y="239" width="425" height="565" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1044@0.0.1920.1044" timestamp="1591703048819" />
-    <state x="694" y="278" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1591636641705">
+    <state x="747" y="239" width="425" height="565" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1044@0.0.1920.1044" timestamp="1591801597702" />
+    <state x="653" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1591793934354">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="694" y="278" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1591636641705" />
+    <state x="653" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1591793934354" />
+    <state x="694" y="278" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1591734805212">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state x="694" y="278" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1591734805212" />
     <state x="100" y="100" width="1720" height="844" key="DiffContextDialog" timestamp="1591372165536">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state x="100" y="100" width="1720" height="844" key="DiffContextDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1591372165536" />
-    <state x="744" y="278" width="432" height="487" key="FileChooserDialogImpl" timestamp="1591728700379">
+    <state x="744" y="278" width="432" height="487" key="FileChooserDialogImpl" timestamp="1591729696970">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="744" y="278" width="432" height="487" key="FileChooserDialogImpl/0.0.1920.1044@0.0.1920.1044" timestamp="1591728700379" />
-    <state width="1897" height="462" key="GridCell.Tab.0.bottom" timestamp="1590843867772">
+    <state x="744" y="278" width="432" height="487" key="FileChooserDialogImpl/0.0.1920.1044@0.0.1920.1044" timestamp="1591729696970" />
+    <state width="1897" height="343" key="GridCell.Tab.0.bottom" timestamp="1591799776404">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1897" height="462" key="GridCell.Tab.0.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1590843867772" />
-    <state width="1897" height="462" key="GridCell.Tab.0.center" timestamp="1590843867772">
+    <state width="1897" height="343" key="GridCell.Tab.0.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1591799776404" />
+    <state width="1897" height="343" key="GridCell.Tab.0.center" timestamp="1591799776402">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1897" height="462" key="GridCell.Tab.0.center/0.0.1920.1044@0.0.1920.1044" timestamp="1590843867772" />
-    <state width="1897" height="462" key="GridCell.Tab.0.left" timestamp="1590843867771">
+    <state width="1897" height="343" key="GridCell.Tab.0.center/0.0.1920.1044@0.0.1920.1044" timestamp="1591799776402" />
+    <state width="1897" height="343" key="GridCell.Tab.0.left" timestamp="1591799776401">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1897" height="462" key="GridCell.Tab.0.left/0.0.1920.1044@0.0.1920.1044" timestamp="1590843867771" />
-    <state width="1897" height="462" key="GridCell.Tab.0.right" timestamp="1590843867772">
+    <state width="1897" height="343" key="GridCell.Tab.0.left/0.0.1920.1044@0.0.1920.1044" timestamp="1591799776401" />
+    <state width="1897" height="343" key="GridCell.Tab.0.right" timestamp="1591799776403">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1897" height="462" key="GridCell.Tab.0.right/0.0.1920.1044@0.0.1920.1044" timestamp="1590843867772" />
-    <state x="681" y="241" width="571" height="561" key="NewPhpClassDialog" timestamp="1591716240959">
+    <state width="1897" height="343" key="GridCell.Tab.0.right/0.0.1920.1044@0.0.1920.1044" timestamp="1591799776403" />
+    <state width="1897" height="343" key="GridCell.Tab.1.bottom" timestamp="1591799776406">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="681" y="241" width="571" height="561" key="NewPhpClassDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1591716240959" />
+    <state width="1897" height="343" key="GridCell.Tab.1.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1591799776406" />
+    <state width="1897" height="343" key="GridCell.Tab.1.center" timestamp="1591799776405">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state width="1897" height="343" key="GridCell.Tab.1.center/0.0.1920.1044@0.0.1920.1044" timestamp="1591799776405" />
+    <state width="1897" height="343" key="GridCell.Tab.1.left" timestamp="1591799776405">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state width="1897" height="343" key="GridCell.Tab.1.left/0.0.1920.1044@0.0.1920.1044" timestamp="1591799776405" />
+    <state width="1897" height="343" key="GridCell.Tab.1.right" timestamp="1591799776406">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state width="1897" height="343" key="GridCell.Tab.1.right/0.0.1920.1044@0.0.1920.1044" timestamp="1591799776406" />
+    <state width="1897" height="343" key="GridCell.Tab.2.bottom" timestamp="1591799776409">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state width="1897" height="343" key="GridCell.Tab.2.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1591799776409" />
+    <state width="1897" height="343" key="GridCell.Tab.2.center" timestamp="1591799776407">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state width="1897" height="343" key="GridCell.Tab.2.center/0.0.1920.1044@0.0.1920.1044" timestamp="1591799776407" />
+    <state width="1897" height="343" key="GridCell.Tab.2.left" timestamp="1591799776407">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state width="1897" height="343" key="GridCell.Tab.2.left/0.0.1920.1044@0.0.1920.1044" timestamp="1591799776407" />
+    <state width="1897" height="343" key="GridCell.Tab.2.right" timestamp="1591799776408">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state width="1897" height="343" key="GridCell.Tab.2.right/0.0.1920.1044@0.0.1920.1044" timestamp="1591799776408" />
+    <state x="681" y="241" width="571" height="561" key="NewPhpClassDialog" timestamp="1591734195967">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state x="681" y="241" width="571" height="561" key="NewPhpClassDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1591734195967" />
     <state x="777" y="447" width="363" height="152" key="NewPhpFileDialog" timestamp="1591515590342">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
@@ -484,10 +512,10 @@
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state x="457" y="155" key="SettingsEditor/0.0.1920.1044@0.0.1920.1044" timestamp="1591006213771" />
-    <state x="664" y="261" width="654" height="586" key="find.popup" timestamp="1591728408306">
+    <state x="664" y="261" width="654" height="586" key="find.popup" timestamp="1591800548134">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="664" y="261" width="654" height="586" key="find.popup/0.0.1920.1044@0.0.1920.1044" timestamp="1591728408306" />
+    <state x="664" y="261" width="654" height="586" key="find.popup/0.0.1920.1044@0.0.1920.1044" timestamp="1591800548134" />
     <state x="624" y="238" key="run.anything.popup" timestamp="1591613227002">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
@@ -511,11 +539,6 @@
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/DataFixtures/AppFixtures.php</url>
-          <line>3</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/Repository/SupplierRepository.php</url>
           <line>32</line>
           <option name="timeStamp" value="6" />
@@ -524,6 +547,31 @@
           <url>file://$PROJECT_DIR$/src/Entity/Contracts.php</url>
           <line>4</line>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/DataFixtures/ProductFixtures.php</url>
+          <line>17</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/DataFixtures/ProductFixtures.php</url>
+          <line>23</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/DataFixtures/ProductFixtures.php</url>
+          <line>29</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/DataFixtures/ProductFixtures.php</url>
+          <line>30</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/DataFixtures/ProductFixtures.php</url>
+          <line>31</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/src/Controller/DefaultController.php</url>

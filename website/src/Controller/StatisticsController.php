@@ -58,6 +58,8 @@ class StatisticsController extends AbstractController
 
         return $this->render('statistic/index.html.twig', [
             'products' => $productsWithExpiredDate,
+            'supplies' => $supplies,
+            'suppliers' => $suppliers
         ]);
     }
 }

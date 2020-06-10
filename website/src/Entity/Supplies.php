@@ -2,12 +2,18 @@
 
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Supplies
  *
- * @ORM\Table(name="supplies", indexes={@ORM\Index(name="IDX_EC2D5CE86FFD5800", columns={"supply_product"}), @ORM\Index(name="IDX_EC2D5CE841544050", columns={"supply_contract"})})
+ * @ORM\Table(name="supplies",
+ *      indexes={@ORM\Index(name="IDX_EC2D5CE86FFD5800",
+ *      columns={"supply_product"}),
+ *      @ORM\Index(name="IDX_EC2D5CE841544050",
+ *      columns={"supply_contract"})}
+ *     )
  * @ORM\Entity
  */
 class Supplies
@@ -53,6 +59,29 @@ class Supplies
      * @ORM\Column(name="contract_supply_date", type="date", nullable=true)
      */
     private $supplyDate;
+
+    /**
+     * @var Measure $supplyMeasure
+     * @ORM\ManyToOne(targetEntity="Measure")
+     * @ORM\JoinColumn(name="measure_id", referencedColumnName="id")
+     */
+    private $supplyMeasure;
+
+    /**
+     * @return Measure
+     */
+    public function getSupplyMeasure(): Measure
+    {
+        return $this->supplyMeasure;
+    }
+
+    /**
+     * @param Measure $supplyMeasure
+     */
+    public function setSupplyMeasure(Measure $supplyMeasure): void
+    {
+        $this->supplyMeasure = $supplyMeasure;
+    }
 
     /**
      * @return int
@@ -113,15 +142,15 @@ class Supplies
     }
 
     /**
-     * @return mixed
+     * @return DateTime
      */
-    public function getSupplyDate()
+    public function getSupplyDate(): DateTime
     {
         return $this->supplyDate;
     }
 
     /**
-     * @param mixed $supplyDate
+     * @param DateTime $supplyDate
      */
     public function setSupplyDate($supplyDate): void
     {

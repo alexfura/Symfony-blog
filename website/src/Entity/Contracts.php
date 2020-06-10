@@ -15,6 +15,12 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Contracts
 {
+    public const UNSIGNED = 'unsigned';
+
+    public const SIGNED = 'signed';
+
+    public const CANCELED = 'canceled';
+
     /**
      * @var int
      *
@@ -52,21 +58,81 @@ class Contracts
 
     /**
      * @var
-     * @ORM\OneToMany(targetEntity="Customers", mappedBy="customerContract")
+     * @ORM\ManyToOne(targetEntity="Customers", inversedBy="customerContracts")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="contractCustomer", referencedColumnName="customer_id", onDelete="SET NULL")
+     * })
      */
-    private $contractCustomers;
+    private $contractCustomer;
 
     /**
      * @var
-     * @ORM\OneToMany(targetEntity="Suppliers", mappedBy="supplierContract")
+     * @ORM\ManyToOne(targetEntity="Suppliers", inversedBy="supplierContracts")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="contractSupplier", referencedColumnName="supplier_id", onDelete="SET NULL")
+     * })
      */
-    private $contractSuppliers;
+    private $contractSupplier;
+
+    /**
+     * @return Customers|null
+     */
+    public function getContractCustomer(): ?Customers
+    {
+        return $this->contractCustomer;
+    }
+
+    /**
+     * @param Customers $contractCustomer
+     */
+    public function setContractCustomer(Customers $contractCustomer): void
+    {
+        $this->contractCustomer = $contractCustomer;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getContractSupplier()
+    {
+        return $this->contractSupplier;
+    }
+
+    /**
+     * @param Suppliers $contractSupplier
+     */
+    public function setContractSupplier($contractSupplier): void
+    {
+        $this->contractSupplier = $contractSupplier;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContractStatus(): string
+    {
+        return $this->contractStatus;
+    }
+
+    /**
+     * @param string $contractStatus
+     */
+    public function setContractStatus(string $contractStatus): void
+    {
+        $this->contractStatus = $contractStatus;
+    }
 
     /**
      * @var
      * @ORM\OneToMany(targetEntity="Supplies", mappedBy="supplyContract")
      */
     private $contractSupplies;
+
+    /**
+     * @var string $contractStatus
+     * @ORM\Column(name="contract_status", type="string", nullable=false)
+     */
+    private $contractStatus = self::UNSIGNED;
 
     /**
      * @return mixed
@@ -154,44 +220,8 @@ class Contracts
         $this->contractSupplyDate = $contractSupplyDate;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getContractCustomers()
-    {
-        return $this->contractCustomers;
-    }
-
-    /**
-     * @param mixed $contractCustomers
-     */
-    public function setContractCustomers($contractCustomers): void
-    {
-        $this->contractCustomers = $contractCustomers;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getContractSuppliers()
-    {
-        return $this->contractSuppliers;
-    }
-
-    /**
-     * @param mixed $contractSuppliers
-     */
-    public function setContractSuppliers($contractSuppliers): void
-    {
-        $this->contractSuppliers = $contractSuppliers;
-    }
-
     public function __construct()
     {
-        $this->contractCustomers = new ArrayCollection();
-        $this->contractSuppliers = new ArrayCollection();
         $this->contractSupplies = new ArrayCollection();
     }
-
-
 }

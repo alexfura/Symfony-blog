@@ -10,23 +10,23 @@
             <table class="table">
                 <tbody>
                 <tr>
-                    <th>ProductId</th>
+                    <th>Product Id</th>
                     <td>{{ product.productId }}</td>
                 </tr>
                 <tr>
-                    <th>ProductName</th>
+                    <th>Product Name</th>
                     <td>{{ product.productName }}</td>
                 </tr>
                 <tr>
-                    <th>ProductManDate</th>
+                    <th>Product ManDate</th>
                     <td>{{ product.productManDate ? product.productManDate|date('Y-m-d') : '' }}</td>
                 </tr>
                 <tr>
-                    <th>ProductExpDate</th>
+                    <th>Product ExpDate</th>
                     <td>{{ product.productExpDate ? product.productExpDate|date('Y-m-d') : '' }}</td>
                 </tr>
                 <tr>
-                    <th>ProductBrand</th>
+                    <th>Product Brand</th>
                     {%  if product.productBrand is not null %}
                         <td>{{ product.productBrand.brandName }}</td>
 
@@ -35,7 +35,7 @@
                     {% endif %}
                 </tr>
                 <tr>
-                    <th>ProductBrand</th>
+                    <th>Product Category</th>
                     {%  if product.productCategory is not null %}
                         <td>{{ product.productCategory.categoryName }}</td>
                     {% else %}

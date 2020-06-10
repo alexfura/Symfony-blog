@@ -162,7 +162,7 @@ class Products
     /**
      * @param Categories $productCategory
      */
-    public function setProductCategory(Categories $productCategory): void
+    public function setProductCategory(?Categories $productCategory): void
     {
         $this->productCategory = $productCategory;
     }
@@ -178,7 +178,7 @@ class Products
     /**
      * @param Brands $productBrand
      */
-    public function setProductBrand(Brands $productBrand): void
+    public function setProductBrand(?Brands $productBrand): void
     {
         $this->productBrand = $productBrand;
     }

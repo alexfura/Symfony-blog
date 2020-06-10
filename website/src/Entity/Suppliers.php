@@ -2,16 +2,23 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Suppliers
  *
- * @ORM\Table(name="suppliers", indexes={@ORM\Index(name="IDX_AC28B95C640640D8", columns={"supplier_contract"})})
+ * @ORM\Table(name="suppliers")
  * @ORM\Entity
  */
 class Suppliers
 {
+    public const DELIVERED = 'delivered';
+
+    public const CANCELED = 'canceled';
+
+    public const PREPARING = 'waiting_for_transporting';
+
     /**
      * @var int
      *
@@ -51,14 +58,14 @@ class Suppliers
     private $supplierPhone;
 
     /**
-     * @var Contracts
-     *
-     * @ORM\ManyToOne(targetEntity="Contracts", inversedBy="contractSuppliers")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="supplier_contract", referencedColumnName="contract_id", onDelete="SET NULL")
-     * })
+     * @ORM\OneToMany(targetEntity="Contracts", mappedBy="contractSupplier")
      */
-    private $supplierContract;
+    private $supplierContracts;
+
+    public function __construct()
+    {
+        $this->supplierContracts = new ArrayCollection();
+    }
 
     /**
      * @return int
@@ -139,22 +146,4 @@ class Suppliers
     {
         $this->supplierPhone = $supplierPhone;
     }
-
-    /**
-     * @return Contracts
-     */
-    public function getSupplierContract(): ?Contracts
-    {
-        return $this->supplierContract;
-    }
-
-    /**
-     * @param Contracts $supplierContract
-     */
-    public function setSupplierContract(Contracts $supplierContract): void
-    {
-        $this->supplierContract = $supplierContract;
-    }
-
-
 }
