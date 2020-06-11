@@ -26,35 +26,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9fd34dd-57da-40d6-8769-81b45ae329a3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/ContractFixtures.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/CustomerFixtures.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/MeasureFixtures.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/SupplierFixtures.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/SupplyFixtures.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20200610185217.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20200610220251.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20200611094018.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20200611124850.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20200611131045.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20200611131218.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20200611142049.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20200611143704.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/StatisticsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/StatisticsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SuppliesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SuppliesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Contracts.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Contracts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Customers.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Customers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Products.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Products.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Suppliers.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Suppliers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Supplies.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Supplies.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ContractsType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ContractsType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/CustomersType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/CustomersType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/SuppliersType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SuppliersType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ContractRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ContractRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ProductRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ProductRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/SupplierRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/SupplierRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contracts/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contracts/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/statistic/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/statistic/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/suppliers/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/suppliers/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -401,7 +376,7 @@
       <workItem from="1591766956704" duration="2354000" />
       <workItem from="1591789828244" duration="22507000" />
       <workItem from="1591856578880" duration="2021000" />
-      <workItem from="1591871497845" duration="12286000" />
+      <workItem from="1591871497845" duration="16366000" />
     </task>
     <servers />
   </component>
@@ -566,7 +541,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/Repository/SupplierRepository.php</url>
-          <line>32</line>
+          <line>31</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">

@@ -4,18 +4,81 @@
 
 {% block content %}
     <h1>Statistic page</h1>
-    {{ dump(products) }}
-    {{ dump(contracts) }}
 
+    <h3>Products with an expiry date less than a week</h3>
     <div class="table-wrapper">
-        <table>
+        <table class="table">
             <thead>
-
+            <tr>
+                <th>Product name</th>
+                <th>Product expiry date</th>
+                <th>Current date</th>
+            </tr>
             </thead>
             <tbody>
-
+            {% for product in products %}
+                <tr>
+                    <td>{{ product.product }}</td>
+                    <td>{{ product.product_exp_date }}</td>
+                    <td>{{ product.current_date }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="1">no records found</td>
+                </tr>
+            {% endfor %}
             </tbody>
         </table>
     </div>
 
+    <h3>Contracts for last 3 months</h3>
+    <div class="table-wrapper">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Contract id</th>
+                <th>years</th>
+                <th>months</th>
+                <th>days</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for contract in contracts %}
+                <tr>
+                    <td>{{ contract.contract_id }}</td>
+                    <td>{{ contract.years }}</td>
+                    <td>{{ contract.months }}</td>
+                    <td>{{ contract.days }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{#    <h3>Suppliers rates by amount of expired supplies</h3>#}
+{#    <div class="table-wrapper">#}
+{#        <table class="table">#}
+{#            <thead>#}
+{#            <tr>#}
+{#                <th>Supplier name</th>#}
+{#                <th>Supplier type</th>#}
+{#            </tr>#}
+{#            </thead>#}
+{#            <tbody>#}
+{#            {% for supplier in suppliers %}#}
+{#                <tr>#}
+{#                    <td>{{ supplier.supplier }}</td>#}
+{#                    <td>{{ supplier.supplier_type }}</td>#}
+{#                </tr>#}
+{#            {% else %}#}
+{#                <tr>#}
+{#                    <td colspan="2">no records found</td>#}
+{#                </tr>#}
+{#            {% endfor %}#}
+{#            </tbody>#}
+{#        </table>#}
+{#    </div>#}
 {% endblock content %}

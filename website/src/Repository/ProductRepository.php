@@ -24,7 +24,7 @@ class ProductRepository extends ServiceEntityRepository
     public function findAllProductsWithExpiryDateLessThanWeek(): ?array
     {
         $sql = <<<EOT
-SELECT product_name AS PRODUCT FROM products 
+SELECT product_name AS PRODUCT, product_exp_date, current_date FROM products 
 where
 EXTRACT(YEAR FROM AGE(products.product_exp_date, current_date)) = 0 AND
 EXTRACT(MONTH FROM AGE(products.product_exp_date, current_date)) = 0 AND
