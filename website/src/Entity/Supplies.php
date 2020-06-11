@@ -41,7 +41,7 @@ class Supplies
      *
      * @ORM\ManyToOne(targetEntity="Products", inversedBy="productSupplies")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="supply_product", referencedColumnName="product_id")
+     *   @ORM\JoinColumn(name="supply_product", referencedColumnName="product_id", onDelete="CASCADE")
      * })
      */
     private $supplyProduct;
@@ -57,29 +57,29 @@ class Supplies
     private $supplyContract;
 
     /**
-     * @ORM\Column(name="contract_supply_date", type="date", nullable=true)
+     * @ORM\Column(name="supply_date", type="date", nullable=true)
      */
     private $supplyDate;
 
     /**
      * @var Measure $supplyMeasure
      * @ORM\ManyToOne(targetEntity="Measure")
-     * @ORM\JoinColumn(name="measure_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="measure_id", referencedColumnName="id", onDelete="SET NULL")
      */
     private $supplyMeasure;
 
     /**
-     * @return Measure
+     * @return Measure|null
      */
-    public function getSupplyMeasure(): Measure
+    public function getSupplyMeasure(): ?Measure
     {
         return $this->supplyMeasure;
     }
 
     /**
-     * @param Measure $supplyMeasure
+     * @param Measure|null $supplyMeasure
      */
-    public function setSupplyMeasure(Measure $supplyMeasure): void
+    public function setSupplyMeasure(?Measure $supplyMeasure): void
     {
         $this->supplyMeasure = $supplyMeasure;
     }

@@ -18,10 +18,7 @@ class CustomersType extends AbstractType
             ->add('customerFirstName')
             ->add('customerSecondName')
             ->add('customerPhone', TelType::class)
-            ->add('customerContract', EntityType::class, [
-                'class' => Contracts::class,
-                'choice_label' => 'contract_id',
-            ]);
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

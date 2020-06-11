@@ -27,10 +27,10 @@
                     <td>{{ contract.contractSignatureDate ? contract.contractSignatureDate|date('Y-m-d') : '-' }}</td>
                     <td>{{ contract.contractSupplyDate ? contract.contractSupplyDate|date('Y-m-d') : '-' }}</td>
                     <td>
-                        {{ contract.contractSupplier ? contract.contractSupplier.supplierName : '-' }}
+                        {{ contract.contractSupplier ? contract.contractSupplier.supplierFirstName : '-' }}
                     </td>
                     <td>
-                        {{ contract.contractCustomer ? contract.contractCustomer.customerName: '-' }}
+                        {{ contract.contractCustomer ? contract.contractCustomer.customerFirstName: '-' }}
                     </td>
                     <td>
                         <a href="{{ path('contracts_show', {'contractId': contract.contractId}) }}">show</a>

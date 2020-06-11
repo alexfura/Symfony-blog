@@ -7,6 +7,7 @@ use App\Entity\Customers;
 use App\Entity\Suppliers;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -19,6 +20,11 @@ class ContractsType extends AbstractType
         $builder
             ->add('contractPrice')
             ->add('contractSale')
+            ->add('contractStatus', ChoiceType::class, [
+                'choices' => Contracts::CONTRACT_TITLE_TO_STATUS_LIST,
+                'multiple' => false,
+                'expanded' => true
+            ])
             ->add('contractSignatureDate', DateTimeType::class, [
                 'widget' => 'single_text'
             ])

@@ -53,13 +53,14 @@ class StatisticsController extends AbstractController
     {
         $productsWithExpiredDate = $this->productRepository->findAllProductsWithExpiryDateLessThanWeek();
         $supplies = $this->supplyRepository->getSuppliesForEachProductPerMonth();
-        $contracts = $this->contractRepository->getContractsWithExpiredSuppliesForLastNMonths(3);
+        $contracts = $this->contractRepository->getContractsWithExpiredSuppliesForLast3Months();
         $suppliers = $this->supplierRepository->getSuppliersRatedByExpiredContractCount();
 
         return $this->render('statistic/index.html.twig', [
             'products' => $productsWithExpiredDate,
             'supplies' => $supplies,
-            'suppliers' => $suppliers
+            'suppliers' => $suppliers,
+            'contracts' => $contracts
         ]);
     }
 }

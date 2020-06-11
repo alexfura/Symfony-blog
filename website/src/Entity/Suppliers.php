@@ -26,21 +26,21 @@ class Suppliers
     /**
      * @var string $supplierName
      *
-     * @ORM\Column(name="supplier_name", type="string", length=40, nullable=false)
+     * @ORM\Column(name="supplier_first_name", type="string", length=225, nullable=false)
      */
-    private $supplierName;
+    private $supplierFirstName;
 
     /**
      * @var string $supplierSecondName
      *
-     * @ORM\Column(name="supplier_second_name", type="string", length=40, nullable=false)
+     * @ORM\Column(name="supplier_second_name", type="string", length=225, nullable=false)
      */
     private $supplierSecondName;
 
     /**
      * @var string $supplierAddress
      *
-     * @ORM\Column(name="supplier_address", type="string", length=40, nullable=false)
+     * @ORM\Column(name="supplier_address", type="string", length=225, nullable=false)
      */
     private $supplierAddress;
 
@@ -82,17 +82,17 @@ class Suppliers
     /**
      * @return string
      */
-    public function getSupplierName(): ?string
+    public function getSupplierFirstName(): ?string
     {
-        return $this->supplierName;
+        return $this->supplierFirstName;
     }
 
     /**
-     * @param string $supplierName
+     * @param string $supplierFirstName
      */
-    public function setSupplierName(string $supplierName): void
+    public function setSupplierFirstName(string $supplierFirstName): void
     {
-        $this->supplierName = $supplierName;
+        $this->supplierFirstName = $supplierFirstName;
     }
 
     /**

@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use DateTime;
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -36,14 +38,14 @@ class Products
     private $productManDate;
 
     /**
-     * @var \DateTime|null
+     * @var DateTime|null
      *
      * @ORM\Column(name="product_exp_date", type="date", nullable=true)
      */
     private $productExpDate;
 
     /**
-     * @var Categories
+     * @var Categories|null
      *
      * @ORM\ManyToOne(targetEntity="Categories", inversedBy="products")
      * @ORM\JoinColumns({
@@ -53,7 +55,7 @@ class Products
     private $productCategory;
 
     /**
-     * @var Brands
+     * @var Brands|null
      *
      * @ORM\ManyToOne(targetEntity="Brands", inversedBy="products")
      * @ORM\JoinColumns({
@@ -64,6 +66,7 @@ class Products
 
 
     /**
+     * @var ArrayCollection
      *
      * @ORM\OneToMany(targetEntity="Supplies", mappedBy="supplyProduct")
      */
@@ -123,9 +126,9 @@ class Products
     }
 
     /**
-     * @return \DateTimeInterface|null
+     * @return DateTimeInterface|null
      */
-    public function getProductManDate(): ?\DateTimeInterface
+    public function getProductManDate(): ?DateTimeInterface
     {
         return $this->productManDate;
     }
@@ -136,31 +139,31 @@ class Products
     }
 
     /**
-     * @return \DateTimeInterface|null
+     * @return DateTimeInterface|null
      */
-    public function getProductExpDate(): ?\DateTimeInterface
+    public function getProductExpDate(): ?DateTimeInterface
     {
         return $this->productExpDate;
     }
 
     /**
-     * @param \DateTime|null $productExpDate
+     * @param DateTime|null $productExpDate
      */
-    public function setProductExpDate(?\DateTime $productExpDate): void
+    public function setProductExpDate(?DateTime $productExpDate): void
     {
         $this->productExpDate = $productExpDate;
     }
 
     /**
-     *
+     * @return Categories|null
      */
-    public function getProductCategory()
+    public function getProductCategory(): ?Categories
     {
         return $this->productCategory;
     }
 
     /**
-     * @param Categories $productCategory
+     * @param Categories|null $productCategory
      */
     public function setProductCategory(?Categories $productCategory): void
     {
@@ -168,15 +171,15 @@ class Products
     }
 
     /**
-     * @return Brands
+     * @return Brands|null
      */
-    public function getProductBrand()
+    public function getProductBrand(): ?Brands
     {
         return $this->productBrand;
     }
 
     /**
-     * @param Brands $productBrand
+     * @param Brands|null $productBrand
      */
     public function setProductBrand(?Brands $productBrand): void
     {

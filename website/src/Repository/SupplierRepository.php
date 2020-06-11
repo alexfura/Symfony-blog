@@ -30,10 +30,10 @@ class SupplierRepository extends ServiceEntityRepository
     {
         $sql = <<<EOT
         WITH SUPPLIERS AS(
-            SELECT Supplier.name AS SUPPLIER, AGE(Contract.signature_date, Supply.supply_date) AS SUPPLY_TIME
-            FROM Contract
-            JOIN Supply ON Supply.contract_id = Contract.id
-            JOIN Supplier ON Supplier.id = Contract.supplier
+            SELECT suppliers.supplier_name AS SUPPLIER, AGE(contracts.contract_signature_date, supplies.supply_date ) AS SUPPLY_TIME
+            FROM contracts
+            JOIN supplies ON supplies.supply_contract = contracts.contract_id 
+            JOIN suppliers ON suppliers.supplier_id = contracts.contract_supplier 
         )
         SELECT SUPPLIER, 'GOOD' FROM SUPPLIERS
         WHERE EXTRACT(YEAR FROM SUPPLY_TIME) > 0 AND

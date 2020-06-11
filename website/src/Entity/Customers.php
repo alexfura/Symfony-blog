@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -25,29 +26,34 @@ class Customers
     /**
      * @var string
      *
-     * @ORM\Column(name="customer_first_name", type="string", length=122, nullable=false)
+     * @ORM\Column(name="customer_first_name", type="string", length=225, nullable=false)
      */
     private $customerFirstName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="customer_second_name", type="string", length=40, nullable=false)
+     * @ORM\Column(name="customer_second_name", type="string", length=225, nullable=false)
      */
     private $customerSecondName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="customer_phone", type="string", length=15, nullable=false)
+     * @ORM\Column(name="customer_phone", type="string", length=40, nullable=false)
      */
     private $customerPhone;
 
     /**
-     * @var Contracts
+     * @var ArrayCollection
      * @ORM\OneToMany(targetEntity="Contracts", mappedBy="contractCustomer")
      */
     private $customerContracts;
+
+    public function __construct()
+    {
+        $this->customerContracts = new ArrayCollection();
+    }
 
     /**
      * @return int

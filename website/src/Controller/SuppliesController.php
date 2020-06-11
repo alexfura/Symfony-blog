@@ -79,7 +79,7 @@ class SuppliesController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('supplies_index', [
+            return $this->redirectToRoute('supplies_show', [
                 'supplyId' => $supply->getSupplyId(),
             ]);
         }
