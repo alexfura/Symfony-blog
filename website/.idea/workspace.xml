@@ -26,10 +26,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9fd34dd-57da-40d6-8769-81b45ae329a3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c29d5e10-79ca-435a-b756-cb8c0e36754a.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c29d5e10-79ca-435a-b756-cb8c0e36754a/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c29d5e10-79ca-435a-b756-cb8c0e36754a/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ProductRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ProductRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/SupplierRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/SupplierRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/statistic/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/statistic/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Supplies.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Supplies.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,20 +41,6 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
-  </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand />
-    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -239,7 +227,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../zm-master" />
+    <property name="last_opened_file_path" value="$USER_HOME$/php_labs/course" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -250,7 +238,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="$PROJECT_DIR$/node_modules/yarn" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.uml" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -376,7 +364,10 @@
       <workItem from="1591766956704" duration="2354000" />
       <workItem from="1591789828244" duration="22507000" />
       <workItem from="1591856578880" duration="2021000" />
-      <workItem from="1591871497845" duration="16366000" />
+      <workItem from="1591871497845" duration="17692000" />
+      <workItem from="1591907359308" duration="3868000" />
+      <workItem from="1591948964592" duration="9881000" />
+      <workItem from="1592030845156" duration="2102000" />
     </task>
     <servers />
   </component>
@@ -425,10 +416,10 @@
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state x="544" y="179" key="#Servers/0.0.1920.1044@0.0.1920.1044" timestamp="1591005936913" />
-    <state x="418" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591005939830">
+    <state x="418" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591909888929">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="418" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1591005939830" />
+    <state x="418" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1591909888929" />
     <state x="747" y="239" width="425" height="565" key="#com.intellij.ide.util.MemberChooser" timestamp="1591801597702">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
@@ -445,10 +436,10 @@
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state x="100" y="100" width="1720" height="844" key="DiffContextDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1591372165536" />
-    <state x="744" y="278" width="432" height="487" key="FileChooserDialogImpl" timestamp="1591729696970">
+    <state x="744" y="278" width="432" height="487" key="FileChooserDialogImpl" timestamp="1591949189567">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="744" y="278" width="432" height="487" key="FileChooserDialogImpl/0.0.1920.1044@0.0.1920.1044" timestamp="1591729696970" />
+    <state x="744" y="278" width="432" height="487" key="FileChooserDialogImpl/0.0.1920.1044@0.0.1920.1044" timestamp="1591949189567" />
     <state width="1897" height="343" key="GridCell.Tab.0.bottom" timestamp="1591887651180">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
@@ -505,10 +496,10 @@
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state x="777" y="447" width="363" height="152" key="NewPhpFileDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1591515590342" />
-    <state x="457" y="155" key="SettingsEditor" timestamp="1591006213771">
+    <state x="457" y="155" width="1007" height="733" key="SettingsEditor" timestamp="1591907690322">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="457" y="155" key="SettingsEditor/0.0.1920.1044@0.0.1920.1044" timestamp="1591006213771" />
+    <state x="457" y="155" width="1007" height="733" key="SettingsEditor/0.0.1920.1044@0.0.1920.1044" timestamp="1591907690322" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1591803355234">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>

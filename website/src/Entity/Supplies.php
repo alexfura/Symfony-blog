@@ -145,7 +145,7 @@ class Supplies
     /**
      * @return DateTime
      */
-    public function getSupplyDate(): DateTime
+    public function getSupplyDate(): ?DateTime
     {
         return $this->supplyDate;
     }
