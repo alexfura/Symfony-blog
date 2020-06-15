@@ -2,15 +2,10 @@
 
 namespace App\Controller;
 
-use App\Entity\Products;
-use App\Form\ProductsType;
 use App\Repository\ContractRepository;
 use App\Repository\ProductRepository;
-use App\Repository\SupplierRepository;
-use App\Repository\SupplyRepository;
 use Doctrine\DBAL\DBALException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -22,27 +17,21 @@ use Symfony\Component\Routing\Annotation\Route;
 class StatisticsController extends AbstractController
 {
     /**
-     * @var ProductRepository
+     * @var ProductRepository $productRepository
      */
     private $productRepository;
 
-    private $supplyRepository;
-
+    /**
+     * @var ContractRepository $contractRepository
+     */
     private $contractRepository;
-
-    private $supplierRepository;
 
     public function __construct(
         ContractRepository $contractRepository,
-        ProductRepository $productRepository,
-        SupplyRepository $supplyRepository,
-        SupplierRepository $supplierRepository
-    )
-    {
+        ProductRepository $productRepository
+    ) {
         $this->productRepository = $productRepository;
-        $this->supplierRepository = $supplierRepository;
         $this->contractRepository = $contractRepository;
-        $this->supplyRepository = $supplyRepository;
     }
 
     /**
@@ -52,14 +41,10 @@ class StatisticsController extends AbstractController
     public function index(): Response
     {
         $productsWithExpiredDate = $this->productRepository->findAllProductsWithExpiryDateLessThanWeek();
-        $supplies = $this->supplyRepository->getSuppliesForEachProductPerMonth();
         $contracts = $this->contractRepository->getContractsWithExpiredSuppliesForLast3Months();
-        $suppliers = $this->supplierRepository->getSuppliersRatedByExpiredContractCount();
 
         return $this->render('statistic/index.html.twig', [
             'products' => $productsWithExpiredDate,
-            'supplies' => $supplies,
-            'suppliers' => $suppliers,
             'contracts' => $contracts
         ]);
     }
