@@ -26,17 +26,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9fd34dd-57da-40d6-8769-81b45ae329a3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/StatisticsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/StatisticsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/categories/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/categories/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/categories/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/categories/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/ContractFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/ContractFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/ProductFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/ProductFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/SupplierFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/SupplierFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/SupplyFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/SupplyFixtures.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,6 +237,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="$PROJECT_DIR$/node_modules/yarn" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -375,7 +370,7 @@
       <workItem from="1592030845156" duration="2102000" />
       <workItem from="1592045094128" duration="1920000" />
       <workItem from="1592126584914" duration="5444000" />
-      <workItem from="1592208830646" duration="1241000" />
+      <workItem from="1592208830646" duration="3596000" />
     </task>
     <servers />
   </component>
@@ -428,10 +423,10 @@
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state x="418" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1591909888929" />
-    <state x="747" y="239" width="425" height="565" key="#com.intellij.ide.util.MemberChooser" timestamp="1591801597702">
+    <state x="747" y="239" width="425" height="565" key="#com.intellij.ide.util.MemberChooser" timestamp="1592213430765">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="747" y="239" width="425" height="565" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1044@0.0.1920.1044" timestamp="1591801597702" />
+    <state x="747" y="239" width="425" height="565" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1044@0.0.1920.1044" timestamp="1592213430765" />
     <state x="653" y="0" width="944" height="1048" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1591885157839">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
@@ -553,27 +548,27 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/DataFixtures/ProductFixtures.php</url>
-          <line>17</line>
+          <line>18</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/DataFixtures/ProductFixtures.php</url>
-          <line>23</line>
+          <line>24</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/DataFixtures/ProductFixtures.php</url>
-          <line>29</line>
+          <line>30</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/DataFixtures/ProductFixtures.php</url>
-          <line>30</line>
+          <line>31</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/DataFixtures/ProductFixtures.php</url>
-          <line>31</line>
+          <line>32</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">

@@ -6,13 +6,14 @@ use App\Entity\Contracts;
 use App\Entity\Customers;
 use App\Entity\Suppliers;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
 /**
  * Class ContractFixtures
  * @package App\DataFixtures
  */
-class ContractFixtures extends Fixture
+class ContractFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
@@ -42,5 +43,16 @@ class ContractFixtures extends Fixture
         }
 
         $manager->flush();
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getDependencies(): array
+    {
+        return [
+            CustomerFixtures::class,
+            SupplierFixtures::class
+        ];
     }
 }

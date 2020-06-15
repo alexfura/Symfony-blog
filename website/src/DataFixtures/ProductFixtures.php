@@ -8,10 +8,11 @@ use App\Entity\Products;
 use Bezhanov\Faker\Provider\Commerce;
 use DateInterval;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 
-class ProductFixtures extends Fixture
+class ProductFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
@@ -42,5 +43,16 @@ class ProductFixtures extends Fixture
             $manager->persist($product);
         }
         $manager->flush();
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getDependencies(): array
+    {
+        return [
+            CategoryFixtures::class,
+            BrandFixtures::class
+        ];
     }
 }

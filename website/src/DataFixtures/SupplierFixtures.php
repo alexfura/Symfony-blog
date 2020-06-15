@@ -26,7 +26,7 @@ class SupplierFixtures extends Fixture
         for ($i = 0;$i < 20;$i++)
         {
             $supplier = new Suppliers();
-            $supplier->setSupplierName($faker->name);
+            $supplier->setSupplierFirstName($faker->name);
             $supplier->setSupplierSecondName($faker->lastName);
             $supplier->setSupplierPhone($faker->phoneNumber);
             $supplier->setSupplierAddress($faker->address);

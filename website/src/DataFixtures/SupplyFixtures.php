@@ -3,16 +3,18 @@
 namespace App\DataFixtures;
 
 use App\Entity\Contracts;
+use App\Entity\Measure;
 use App\Entity\Products;
 use App\Entity\Supplies;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
 /**
  * Class SupplyFixtures
  * @package App\DataFixtures
  */
-class SupplyFixtures extends Fixture
+class SupplyFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
@@ -40,5 +42,15 @@ class SupplyFixtures extends Fixture
         }
 
         $manager->flush();
+    }
+
+
+    public function getDependencies()
+    {
+        return [
+            ContractFixtures::class,
+            ProductFixtures::class,
+            MeasureFixtures::class
+        ];
     }
 }
